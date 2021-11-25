@@ -5,6 +5,11 @@ node_modules
 /.pnp
 .pnp.js
 
+/client/build
+/client/.env.development.local
+/client/.env.test.local
+/client/.env.production.local
+
 # misc
 .DS_Store
 .env

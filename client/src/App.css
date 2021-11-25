@@ -1,0 +1,2339 @@
+/* Import google font */
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+/* Steve Hsu */
+/* This sheet is based by App.css from Brad Traversy */
+/* I customized some features of this sheet */
+/* Every topic start with "@", so you can have a quick view by searching the "@". */
+
+/* Global Styles */
+:root {
+  /* Color plate */
+  /* Applying the _1 as the background Color or opposite the _4 as the background Color */
+  /* --cp-1_1: #f6f4e6; */
+  --cp-1_1: #f5f5f5;
+  /* --cp-1_2: #fddb3a; */
+  --cp-1_2: #fddb3a;
+  --cp-1_3: #52575d;
+  --cp-1_4: #41444b;
+
+  /* color family */
+  --cp-1_1-light: #fbfaf5;
+  --cp-1_2-light: #ffef9f;
+
+  /* Complementary color */
+  /* You have findout by browsers with the color code */
+  --cp-1_2-c: #3a5cfd;
+  --cp-1_2-light-c: #9fafff;
+  /* The theme */
+
+  --primary-color: var(--cp-1_2);
+  --primary-text: var(--cp-1_4);
+  /* Others */
+  --dark-color: #333333;
+  --light-color: #fff5bd;
+  --danger-color: #cc3300;
+  --success-color: #339900;
+
+  /* The color for fade element such as thin border */
+  /* This color should be able to apply to any color wihout dismatch.  */
+  --fade-color: rgba(0, 0, 0, 0.08);
+  --fade-color-dark: rgba(0, 0, 0, 0.35);
+  --gray-1: #f5f5f5;
+  --gray-2: #e2e2e2;
+  --gray-3: #cacaca;
+  --gray-4: #a8a8a8;
+  --gray-5: #888888;
+
+  /* Space */
+  --gap: 0;
+  --tiny: 3px;
+  --small: 5px;
+  --middle: 10px;
+  --large: 16px;
+
+  /* btn height Height */
+  --btn-h-s: 25px;
+  --btn-h-m: 40px;
+  --btn-h-l: 65px;
+
+  /* .grid-gap-row-ti {
+  row-gap: 0.2rem; 
+}
+
+.grid-gap-row-sm {
+  row-gap: 0.3rem;
+}
+
+.grid-gap-row-md {
+  row-gap: 1.2rem;
+}
+
+.grid-gap-row-lg {
+  row-gap: 2rem;
+} */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+.app {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  background-color: #fff;
+  color: var(--cp-1_4);
+}
+
+a {
+  color: var(--cp-1_3);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--cp-1_2);
+}
+
+ul {
+  color: var(--cp-1_3);
+  list-style: none;
+}
+
+img {
+  width: 100%;
+}
+
+.backgroundImg {
+  /* background-image: url("../src/imgs/ilya-lix-_HQdgqULdAQ-unsplash.jpg"); */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  /* opacity: 1; */
+}
+
+/* @Utilities --------------------- */
+/* @container */
+.container {
+  max-width: 1100px;
+  margin: 0 1rem;
+  overflow: hidden;
+  padding: 0 2rem;
+}
+
+.container-with-navbar {
+  padding-top: 65px;
+}
+
+.transition {
+  transition: all 0.5s;
+}
+
+/* @Cards */
+.card {
+  padding: 1rem;
+  /* border: var(--fade-color) 1px dotted; */
+  margin: 0.7rem 0;
+}
+
+.round-card {
+  padding: 1rem;
+  border-radius: var(--small);
+
+  margin: 0.7rem 0;
+}
+
+/* @List */
+.list {
+  margin: 0.5rem 0;
+}
+
+.list li {
+  padding-bottom: 0.3rem;
+}
+
+/* @Label */
+.label {
+  font-size: 0.7rem;
+  color: var(--primary-color);
+}
+
+/* @Grid */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.grid-5 {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.grid-6 {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+.grid-7 {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.grid-15 {
+  display: grid;
+  grid-template-columns: repeat(15, 1fr);
+}
+
+.gridAuto {
+  display: grid;
+  grid-template: auto 1fr auto / auto 1fr auto;
+}
+
+/* grid - 2 block*/
+
+.grid-1-4 {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+}
+
+.grid-1-5 {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+}
+
+.grid-1-6 {
+  display: grid;
+  grid-template-columns: 1fr 6fr;
+}
+
+.grid-1-7 {
+  display: grid;
+  grid-template-columns: 1fr 7fr;
+}
+
+.grid-2-3 {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+}
+
+.grid-3-1 {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+}
+/* grid - 3 block*/
+.grid-1-1-6 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 6fr;
+}
+
+.grid-1-07-6 {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr 6fr;
+}
+
+.grid-1-6-1 {
+  display: grid;
+  grid-template-columns: 1fr 6fr 1fr;
+}
+
+/* Special grip */
+.grid-05-1-1-1-3 {
+  display: grid;
+  grid-template-columns: 0.5fr repeat(3, 1fr) 3fr;
+}
+
+.grid-1-5-1-1-1-1-1 {
+  display: grid;
+  grid-template-columns: 1fr 5fr repeat(5, 1fr);
+}
+
+.grid-mPrice {
+  display: grid;
+  grid-template-columns: 20px 1fr 1.7fr 0.6fr 0.6fr 0.6fr 0.6fr 0.6fr 30px;
+}
+
+.grid-mPrice-quo {
+  display: grid;
+  grid-template-columns: 20px 1fr 1.7fr 0.6fr 0.6fr 0.6fr 0.6fr 0.6fr 0.6fr 30px;
+  /* grid-auto-rows: auto; */
+}
+
+.grid-Inquiry-Mtrl {
+  display: grid;
+  grid-template-columns: 3rem 0.8fr 1fr 10rem 8rem 10rem;
+}
+
+.grid-Quo-Mtrl {
+  display: grid;
+  grid-template-columns: 8rem 1fr 8rem 8rem 5rem;
+}
+
+.grid-Quo-otherExpanse {
+  display: grid;
+  grid-template-columns: 10rem 1fr 5rem;
+}
+
+.grid-Quo-condition {
+  display: grid;
+  grid-template-columns: 12.8rem 1fr;
+}
+
+.grid-Pur-Mtrl {
+  display: grid;
+  grid-template-columns: 3rem 10rem 10rem 10rem 8rem 1fr 8rem;
+}
+
+.grid-OsMtrl {
+  display: grid;
+  grid-template-columns: 4rem 6rem 8rem 8rem 8rem 1fr 5rem 6rem 4rem 6rem;
+}
+
+/* grid gap */
+.gap-ti {
+  grid-gap: var(--tiny);
+}
+
+.gap-sm {
+  grid-gap: var(--small);
+}
+
+.gap-md {
+  grid-gap: var(--middle);
+}
+
+.gap-lg {
+  grid-gap: var(--large);
+}
+
+/* grid gap - row */
+.row-gap-ti {
+  row-gap: var(--tiny);
+}
+
+.row-gap-sm {
+  row-gap: var(--small);
+}
+
+.row-gap-md {
+  row-gap: var(--middle);
+}
+
+.row-gap-lg {
+  row-gap: var(--large);
+}
+
+/* grid gap - column */
+.col-gap-ti {
+  column-gap: var(--tiny);
+}
+
+.col-gap-sm {
+  column-gap: var(--small);
+}
+
+.col-gap-md {
+  column-gap: var(--middle);
+}
+
+.col-gap-lg {
+  column-gap: var(--large);
+}
+
+/* @Custom grid */
+/* Purchase Order Sheet */
+.gridCol-1-3 {
+  grid-column: 1/3;
+}
+.gridCol-3-7 {
+  grid-column: 3/7;
+}
+.gridCol-7-9 {
+  grid-column: 7/9;
+}
+.gridCol-9-10 {
+  grid-column: 9/10;
+}
+.gridCol-10-11 {
+  grid-column: 10/11;
+}
+.gridCol-11-12 {
+  grid-column: 11/12;
+}
+.gridCol-12-13 {
+  grid-column: 12/13;
+}
+.gridCol-13-14 {
+  grid-column: 13/14;
+}
+.gridCol-14-16 {
+  grid-column: 14/16;
+}
+
+/* @button */
+/* .btn {
+  display: inline-block;
+  position: relative;
+  padding: 0.4rem 1.3rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: opacity 0.2s ease-in;
+  outline: none;
+  justify-content: center;
+  align-content: center;
+} */
+
+.btn {
+  display: inline-block;
+  position: relative;
+  padding: 0.4rem 1.3rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: opacity 0.2s ease-in;
+  outline: none;
+  place-items: center;
+  height: var(--btn-h-m);
+}
+
+.btn:hover {
+  opacity: 0.7;
+}
+
+.btn-sq {
+  height: var(--btn-h-m);
+  width: var(--btn-h-m);
+  border-radius: var(--small);
+  background: var(--cp-1_3);
+  color: var(--cp-1_2);
+  border: 2px solid var(--cp-1_4);
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.btn-sq-small {
+  height: var(--btn-h-s);
+  width: var(--btn-h-s);
+}
+
+.btn-sq:hover {
+  background: var(--cp-1_2);
+  color: var(--cp-1_3);
+  opacity: 0.7;
+}
+
+.btn-dropdown {
+  height: 3rem;
+  width: 100%;
+  color: var(--cp-1_2);
+  border-radius: var(--small);
+  border: 2px solid var(--cp-1_4);
+  background: var(--cp-1_3);
+  transition: all 0.5s;
+}
+
+.btn-dropdown:hover {
+  background: var(--cp-1_2);
+  color: var(--cp-1_4);
+  border: 2px solid var(--cp-1_3);
+  opacity: 1;
+}
+
+.btn-link {
+  background: none;
+  padding: 0;
+  margin: 0;
+}
+
+.btn-block {
+  display: block;
+  height: 2.2rem;
+  width: 100%;
+}
+
+.btn-sm {
+  font-size: 0.8rem;
+  padding: 0.3rem 1rem;
+  margin-right: 0.2rem;
+}
+
+/* custom Btn */
+.btn-toggleTitle-containter {
+  border-radius: var(--small);
+  background: var(--cp-1_4);
+  height: var(--btn-h-m);
+  width: 392px;
+  margin-left: 100px;
+}
+
+.btn-toggleTitle {
+  display: grid;
+  background: var(--cp-1_3);
+  border-radius: var(--small);
+  color: var(--cp-1_4);
+  width: 98px;
+  place-items: center;
+  padding: 0.5rem;
+}
+
+.btn-toggleTitle:hover {
+  color: var(--cp-1_1);
+  opacity: 0.6;
+}
+
+.badge {
+  font-size: 0.8rem;
+  padding: 0.2rem 0.7rem;
+  text-align: center;
+  margin: 0.3rem;
+  background: var(--light-color);
+  color: #333;
+  border-radius: var(--small);
+}
+
+.alert {
+  padding: 0.7rem;
+  margin: 1rem 0;
+  opacity: 0.9;
+  background: var(--light-color);
+  color: #333;
+}
+
+.badge-light {
+  border: var(--fade-s) solid 1px;
+}
+
+.round-img {
+  border-radius: 50%;
+}
+
+.round-square-img {
+  border-radius: var(--small);
+}
+
+.btn-warning:hover {
+  background: var(--danger-color);
+  color: white;
+  transition: all 0.5s;
+  opacity: 1;
+  border-radius: 50%;
+  border: 0;
+}
+
+/* @Check Box */
+/* Toggle Switch */
+.toggleSwitch {
+  width: 7rem;
+  display: flex;
+  justify-content: space-between;
+  padding-right: 1rem;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+}
+
+/* The checkBox */
+.switchInput {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider,
+.slider-cp-1 {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* The background color when the toggole is off, at the right side */
+  /* border: 2px solid var(--cp-1_4); */
+  background-color: var(--cp-1_3);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+/* The circle in the toggle switch */
+.slider:before,
+.slider-cp-1:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 23px;
+  left: 2px;
+  bottom: 2px;
+  background-color: var(--cp-1_1);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+/* Seperate the circle color */
+.slider-cp-1:before {
+  background-color: var(--cp-1_1);
+}
+
+.switchInput:checked + .slider,
+.switchInput:checked + .slider-cp-1 {
+  background-color: var(--cp-1_2-c);
+}
+
+/* input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+} */
+
+.switchInput:checked + .slider:before,
+.switchInput:checked + .slider-cp-1:before {
+  -webkit-transform: translateX(23px);
+  -ms-transform: translateX(23px);
+  transform: translateX(23px);
+}
+
+/* Slider Type*/
+.slider.round,
+.slider-cp-1.round {
+  border-radius: 24px;
+}
+.slider.round:before,
+.slider-cp-1.round:before {
+  border-radius: 50%;
+}
+
+/* Toggle Switch - 2 - squire switch with words -----*/
+.sq-toggleSwitch {
+  width: 200px;
+  height: var(--btn-h-m);
+  display: flex;
+  justify-content: space-between;
+}
+.sq-switch {
+  position: relative;
+  display: inline-block;
+  width: 200px;
+  height: var(--btn-h-m);
+}
+
+/* The checkBox */
+.sq-switchInput {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The backround of the toggle switch */
+.sq-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: var(--btn-h-m);
+  /* background-color: var(--cp-1_3); */
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+.sq-block {
+  height: var(--btn-h-m);
+  width: 100px;
+  z-index: 2;
+}
+
+/* The circle in the toggle switch */
+.sq-slider:before {
+  position: absolute;
+  content: "";
+  height: 36px;
+  width: 96px;
+  left: 2px;
+  bottom: 2px;
+  background-color: var(--cp-1_2);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.sq-switchInput:checked + .sq-slider:before {
+  -webkit-transform: translateX(100px);
+  -ms-transform: translateX(100px);
+  transform: translateX(100px);
+}
+
+.sq-slider {
+  border-radius: var(--small);
+}
+.sq-slider:before {
+  border-radius: 4px;
+}
+
+/* @Forms */
+
+.form-text {
+  display: block;
+  margin-top: 0.3rem;
+  color: var(--cp-1_3);
+}
+
+.form-group {
+  margin: 1.2rem 0;
+}
+
+.form-group input {
+  margin: 0.2rem 0;
+}
+
+.form-container {
+  max-width: 500px;
+  margin: 12rem auto;
+  overflow: hidden;
+  padding: 0 2rem;
+}
+
+.form-container h1,
+h2,
+h3 {
+  text-align: center;
+}
+
+/* @table */
+table th,
+table td {
+  padding: 1rem;
+  text-align: left;
+}
+
+table th {
+  background: var(--light-color);
+}
+
+/* Custom Table */
+.tableItem:last-of-type {
+  border-bottom-right-radius: var(--small);
+  border-bottom-left-radius: var(--small);
+}
+
+/* @input */
+/* input {
+  margin: 0;
+} */
+
+input,
+/* input[type='number'], */
+select,
+textarea {
+  display: inline-block;
+  width: 100%;
+  padding: 0.4rem;
+  font-size: 1rem;
+  border-radius: var(--small);
+  transition: all 0.5s;
+  border: 1px solid var(--fade-color);
+  height: 2.2rem;
+}
+
+input[type="checkbox"] {
+  height: 1.5rem;
+}
+
+/*  Input in type 'date' */
+::-webkit-datetime-edit {
+  /* font-size: 1rem; */
+  font-family: "Roboto", sans-serif;
+  padding: 0.3rem;
+}
+::-webkit-datetime-edit-fields-wrapper {
+  /* background: silver; */
+}
+::-webkit-datetime-edit-text {
+  /* color: red; */
+  padding: 0 0.3em;
+}
+::-webkit-datetime-edit-month-field {
+  /* color: blue; */
+}
+::-webkit-datetime-edit-day-field {
+  /* color: green; */
+}
+::-webkit-datetime-edit-year-field {
+  /* color: purple; */
+}
+::-webkit-inner-spin-button {
+  /* display: none; */
+}
+::-webkit-calendar-picker-indicator {
+  /* background: orange; */
+}
+
+.select-primary {
+  transition: all 0.5s;
+}
+
+input:hover,
+/* input[type='number']:hover, */
+select:hover,
+textarea:hover {
+  /* color: var(--primary-text); */
+  /* background: var(--primary-color); */
+  /* border: 1px solid var(--cp-1_2); */
+  transition: all 0.1s;
+  box-shadow: 0px 0 0px 2px var(--cp-1_2);
+}
+/* input[type='number']:focus, */
+/* input:focus,
+textarea:focus {
+  outline: none;
+} */
+input:focus,
+textarea:focus,
+select:focus {
+  box-shadow: none;
+  outline: none;
+  transition: all 0.5s;
+}
+input[type="checkbox"]:hover,
+input[type="checkbox"]:focus,
+input[type="submit"]:hover,
+input[type="submit"]:focus {
+  box-shadow: none;
+}
+
+.select-primary:focus,
+.select-primary:hover {
+  /* color: white; */
+  background: var(--primary-color);
+  transition: all 0.5s;
+  box-shadow: none;
+}
+
+.select-primary-sub {
+  transition: all 0.5s;
+  height: 3rem;
+}
+
+.select-primary-sub:focus,
+.select-primary-sub:hover {
+  /* color: white; */
+  border: 1px solid rgba(255, 255, 255, 0);
+  background: var(--primary-color);
+  transition: all 0.5s;
+  box-shadow: none;
+}
+
+.itemSelect {
+  width: 15rem;
+  border: rgba(255, 255, 255, 0);
+  background: var(--cp-1_1);
+  font-size: 40px;
+  height: 4rem;
+}
+
+/* input - Moveing place holder input */
+/* Usage : an input with class MPH-input followed by label with class MPH-input-label. The input must be set placerholder */
+/* Depanding on what class wrap the input and label, and the font-size, you have to adjust the space between label and input  */
+.MPH-input-label {
+  font-size: 1rem;
+  display: block;
+  opacity: 1;
+  -webkit-transform: translateY(-1.8rem) translateX(0.5rem);
+  -ms-transform: translateY(-1.8rem) translateX(0.5rem);
+  transform: translateY(-1.8rem) translateX(0.5rem);
+  transform-origin: 0 0;
+  transition: all 0.3s;
+  animation: labelDown 0.7s ease;
+  color: var(--gray-4);
+  white-space: nowrap;
+}
+
+.MPH-input {
+  box-shadow: none;
+  transition: all 0.5s;
+  z-index: 2;
+  color: var(--cp-1_4);
+  border: 1px solid var(--fade-color);
+}
+
+.MPH-input::placeholder {
+  color: rgba(255, 255, 255, 0);
+}
+
+.MPH-input:hover,
+.MPH-input:focus {
+  /* box-shadow: none; */
+  outline: none;
+  /* background: var(--cp-1_2); */
+  border: 1px solid rgba(255, 255, 255, 0);
+  transition: all 0.2s;
+  box-shadow: 0px 0 0px 2px var(--cp-1_2);
+}
+
+.MPH-input:hover + .MPH-input-label {
+  color: var(--cp-1_3);
+  transition: all 0.5s;
+}
+
+.MPH-input:placeholder-shown + .MPH-input-label:hover {
+  cursor: pointer;
+}
+
+.MPH-input:focus + .MPH-input-label,
+.MPH-input:not(:placeholder-shown) + .MPH-input-label {
+  -webkit-transform: translateY(-3.3rem) scale(0.7);
+  -ms-transform: translateY(-3.3rem) scale(0.7);
+  transform: translateY(-3.3rem) scale(0.7);
+  animation: labelUp 0.7s ease;
+  color: var(--gray-4);
+}
+
+.MPH-input:focus + .MPH-input-label-gQty,
+.MPH-input:not(:placeholder-shown) + .MPH-input-label-gQty {
+  padding-left: 0.5rem;
+}
+
+/* customised input */
+.item-input[type="text"] {
+  background: rgba(255, 255, 255, 0);
+  height: 3.5rem;
+  position: relative;
+  font-size: 3rem;
+  z-index: 2;
+  border: 1px solid rgba(255, 255, 255, 0);
+  color: var(--cp-1_4);
+}
+
+.item-input:hover {
+  box-shadow: none;
+}
+
+.item-input:hover::placeholder {
+  color: var(--cp-1_4);
+}
+
+.item-input::placeholder {
+  position: relative;
+  /* color: var(); */
+  font-size: 3rem;
+  z-index: 3;
+}
+/* when focus, the placeholer turn white */
+.item-input:focus::placeholder {
+  color: rgba(255, 255, 255, 0);
+}
+
+/* .item-input::placeholder:focus {
+  color: white;
+} */
+
+@keyframes labelUp {
+  0% {
+    color: var(--gray-4);
+  }
+  25% {
+    color: rgba(255, 255, 255, 0);
+  }
+  50% {
+    color: rgba(255, 255, 255, 0);
+  }
+  65% {
+    color: var(--gray-3);
+  }
+
+  85% {
+    color: var(--gray-4);
+  }
+
+  100% {
+    color: var(--gray-4);
+  }
+}
+
+@keyframes labelDown {
+  0% {
+    color: var(--gray-4);
+  }
+  25% {
+    color: rgba(255, 255, 255, 0);
+  }
+  35% {
+    color: var(--gray-2);
+  }
+  50% {
+    color: var(--gray-3);
+  }
+  65% {
+    color: var(--gray-4);
+  }
+  100% {
+    color: var(--gray-4);
+  }
+}
+
+/* Usage : Use a div with class .MPH-input-group to warp a input and babel, the input will transform it size when focused. */
+.MPH-input-group {
+  transition: all 0.3s;
+  z-index: 1;
+}
+.MPH-input-group:focus-within {
+  -webkit-transform: scale(1.1, 1.1);
+  -ms-transform: scale(1.1, 1.1);
+  transform: scale(1.1, 1.1);
+}
+
+/* @Navbar */
+.navbar {
+  display: flex;
+  position: fixed;
+  top: 0;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.7rem 2rem;
+  z-index: 10;
+  height: 50px;
+  width: 100%;
+  /* border-bottom: solid 1px var(--primary-color); */
+  opacity: 1;
+  margin-bottom: 1rem;
+  /* color: var(--primary-text); */
+}
+
+.navbar ul {
+  display: flex;
+}
+
+.navbar a {
+  /* color: #fff; */
+  padding: 0.45rem;
+  margin: 0 0.25rem;
+}
+
+.navbar a:hover {
+  color: var(--primary-color);
+}
+
+.navbar .welcome span {
+  margin-right: 0.6rem;
+}
+
+/* @Leftbar */
+
+.leftbar {
+}
+
+.leftbar-component {
+  position: fixed;
+  width: 18%;
+}
+
+/* @Animation (Add After) */
+.item-enter {
+  opacity: 0;
+}
+.item-enter-active {
+  opacity: 1;
+  transition: opacity 1000ms ease-in;
+}
+.item-exit {
+  opacity: 1;
+}
+.item-exit-active {
+  opacity: 0;
+  transition: opacity 1000ms ease-in;
+}
+
+/* @PopupForm */
+.popup {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+.popup-inner {
+  position: absolute;
+  left: 30%;
+  right: 30%;
+  top: 20%;
+  bottom: 35%;
+  margin: auto;
+  background: rgba(255, 255, 255, 0);
+  z-index: 11;
+  font-size: large;
+}
+
+.popup-container {
+  /* position: absolute; */
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+}
+
+.popup-btn-holder {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  height: 30%;
+}
+
+/* @FlexBox */
+.flexBox {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+/* Block a area with radious  */
+.round-area {
+  border-radius: var(--small);
+  padding: 10px;
+}
+
+/* Board Parent */
+.boardParent {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  width: 70vw;
+}
+
+/* BoardElement */
+.boardChild {
+  /* flex: 0 1 150px; */
+  /* width: clamp(150px, 18%, 600px); */
+  width: 13vw;
+  height: 13vw;
+  /* height: clamp(150px, 18%, 200px); */
+  /* flex: 0 1 clamp(150px, 18%, 200px); */
+  margin: 0.5vw;
+  /* padding: 5px; */
+}
+
+/* @Cursor */
+.cursor:hover {
+  cursor: pointer;
+}
+
+/* @Mobile Styles  -------------------------------- */
+
+@media (max-width: 700px) {
+  .hide-sm {
+    display: none;
+  }
+
+  .grid-2,
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+
+  /* Navbar */
+  .navbar {
+    display: block;
+    text-align: center;
+  }
+
+  .navbar h1 {
+    margin-bottom: 0.6rem;
+  }
+
+  .navbar ul {
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+/* @Like Forced important style ----------------  */
+/* @Text */
+/* @Font */
+/* @Font-styles  */
+/* syne-regular - latin */
+/* syne-regular - latin */
+
+.syen-regular {
+  font-family: "Syne";
+  font-style: normal;
+  font-weight: 400;
+}
+
+/* Font-size */
+.fs-max {
+  font-size: 7rem;
+  line-height: 1.2;
+  /* margin-bottom: 1rem; */
+}
+.fs-halfMax {
+  font-size: 3.5rem;
+}
+.fs-large {
+  font-size: 2rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.fs-lead {
+  font-size: 1.2rem;
+  /* margin-bottom: 1rem; */
+}
+
+.fs-normal {
+  font-size: 1rem;
+}
+
+.fs-small {
+  font-size: 0.8rem;
+}
+
+.fs-tiny {
+  font-size: 0.6rem;
+}
+
+/* Font-color */
+.fc-cp-1 {
+  color: var(--cp-1_1);
+}
+
+.fc-cp-2 {
+  color: var(--cp-1_2);
+}
+
+.fc-cp-2-c {
+  color: var(--cp-1_2-c);
+}
+
+.fc-cp-3 {
+  color: var(--cp-1_3);
+}
+
+.fc-cp-4 {
+  color: var(--cp-1_4);
+}
+
+.fc-fade {
+  color: var(--fade-color);
+}
+
+.fc-fade-dark {
+  color: var(--fade-color-dark);
+}
+
+.fc-success {
+  color: var(--success-color);
+}
+
+.fc-danger {
+  color: var(--danger-color);
+}
+
+.fc-gray-1 {
+  color: var(--gray-1);
+}
+
+.fc-gray-3 {
+  color: var(--gray-3);
+}
+
+.fc-gray-4 {
+  color: var(--gray-4);
+}
+
+.fc-gray-5 {
+  color: var(--gray-5);
+}
+
+/* font weight */
+.fw-bold {
+  font-weight: bold;
+}
+
+/* font warp */
+.f-warp {
+  word-wrap: normal;
+}
+
+.f-lineHeight-70 {
+  line-height: 70%;
+}
+
+/* Text positoin */
+/* Font position */
+.tp-center,
+.fp-center {
+  text-align: center;
+}
+
+.tp-right,
+.fp-right {
+  text-align: right;
+}
+
+.tp-left,
+.fp-left {
+  text-align: left;
+}
+/* Font weight */
+.fw-lighter {
+  /* font-weight: 100; */
+  font-weight: lighter;
+}
+/* @OverFlow */
+.overflow-auto {
+  overflow: auto;
+}
+.overflow-auto-x {
+  overflow-x: auto;
+}
+.overflow-auto-y {
+  overflow-y: auto;
+}
+
+/* The scrollbar for OverFlow */
+::-webkit-scrollbar {
+  width: 2px;
+}
+::-webkit-scrollbar-track {
+}
+::-webkit-scrollbar-thumb {
+}
+::-webkit-scrollbar-thumb-hover {
+}
+
+/* @Position */
+/* .center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+} */
+
+/* @Position the content */
+/* Apply to container */
+.center-content {
+  /* position: relative; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* align-items: stretch; */
+}
+.h-center-content {
+  display: flex;
+  justify-content: center;
+}
+.v-center-content {
+  display: flex;
+  align-items: center;
+}
+.h-scatter-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* @Padding */
+.p {
+  padding: var(--gap);
+}
+
+.p-03 {
+  padding: 0.3rem;
+}
+
+.p-04 {
+  padding: 0.4rem;
+}
+
+.p-05 {
+  padding: 0.5rem;
+}
+
+.p-1 {
+  padding: 1rem;
+}
+.p-2 {
+  padding: 2rem;
+}
+.p-3 {
+  padding: 3rem;
+}
+/* Padding - x axis */
+.px {
+  padding-left: var(--gap);
+  padding-right: var(--gap);
+}
+.px-03 {
+  padding-left: 0.3rem;
+  padding-right: 0.3rem;
+}
+.px-05 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.px-1 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.px-2 {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+.px-3 {
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+/* Padding - y axis */
+.py {
+  padding-top: var(--gap);
+  padding-bottom: var(--gap);
+}
+
+.py-03 {
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+}
+
+.py-05 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.py-1 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.py-2 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+.py-3 {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+/* Padding - top */
+.pt {
+  padding-top: var(--gap);
+}
+.pt-03 {
+  padding-top: 0.3rem;
+}
+.pt-04 {
+  padding-top: 0.4rem;
+}
+.pt-05 {
+  padding-top: 0.5rem;
+}
+.pt-07 {
+  padding-top: 0.7rem;
+}
+.pt-1 {
+  padding-top: 1rem;
+}
+.pt-1d3 {
+  padding-top: 1.3rem;
+}
+.pt-2 {
+  padding-top: 2rem;
+}
+.pt-3 {
+  padding-top: 3rem;
+}
+
+/* Padding - bottom */
+.pb {
+  padding-bottom: var(--gap);
+}
+
+.pb-03 {
+  padding-bottom: 0.3rem;
+}
+.pb-05 {
+  padding-bottom: 0.5rem;
+}
+.pb-1 {
+  padding-bottom: 1rem;
+}
+.pb-2 {
+  padding-bottom: 2rem;
+}
+.pb-3 {
+  padding-bottom: 3rem;
+}
+
+/* Padding - left */
+.pl {
+  padding-left: var(--gap);
+}
+.pl-05 {
+  padding-left: 0.5rem;
+}
+.pl-06 {
+  padding-left: 0.6rem;
+}
+.pl-07 {
+  padding-left: 0.7rem;
+}
+.pl-1 {
+  padding-left: 1rem;
+}
+.pl-2 {
+  padding-left: 2rem;
+}
+.pl-3 {
+  padding-left: 3rem;
+}
+
+/* Padding - right */
+.pr {
+  padding-right: var(--gap);
+}
+.pr-05 {
+  padding-right: 0.5rem;
+}
+.pr-1 {
+  padding-right: 1rem;
+}
+.pr-2 {
+  padding-right: 2rem;
+}
+.pr-3 {
+  padding-right: 3rem;
+}
+
+.pt-0 {
+  padding-top: 0;
+}
+.pb-0 {
+  padding-bottom: 0;
+}
+
+.pl-0 {
+  padding-left: 0;
+}
+.pr-0 {
+  padding-right: 0;
+}
+.py-0 {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.p-0 {
+  padding: 0;
+}
+
+/* @Margin */
+.m {
+  margin: var(--gap);
+}
+
+.m-02 {
+  margin: 0.2rem;
+}
+
+.m-05 {
+  margin: 0.5rem;
+}
+.m-1 {
+  margin: 1rem;
+}
+.m-2 {
+  margin: 2rem;
+}
+.m-3 {
+  margin: 3rem;
+}
+
+/* Margin - y axis */
+.my {
+  margin: var(--gap) 0;
+}
+
+.my-03 {
+  margin-top: 0.3rem;
+  margin-bottom: 0.3rem;
+}
+
+.my-05 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.my-1 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.my-2 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+.my-3 {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+/* Margin - x axis */
+.mx {
+  margin: 0 var(--gap);
+}
+
+.mx-03 {
+  margin-left: 0.3rem;
+  margin-right: 0.3rem;
+}
+.mx-05 {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+.mx-1 {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+.mx-2 {
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+.mx-3 {
+  margin-left: 3rem;
+  margin-right: 3rem;
+}
+
+/* Margin - top */
+.mt {
+  margin-top: var(--gap);
+}
+
+.mt-03 {
+  margin-top: 0.3rem;
+}
+.mt-05 {
+  margin-top: 0.5rem;
+}
+.mt-1 {
+  margin-top: 1rem;
+}
+.mt-2 {
+  margin-top: 2rem;
+}
+.mt-3 {
+  margin-top: 3rem;
+}
+
+.mt-sm {
+  margin-top: var(--small);
+}
+.mt-md {
+  margin-top: var(--middle);
+}
+
+/* Margin - bottom */
+.mb {
+  margin-bottom: var(--gap);
+}
+
+.mb-03 {
+  margin-bottom: 0.3rem;
+}
+
+.mb-05 {
+  margin-bottom: 0.5rem;
+}
+.mb-06 {
+  margin-bottom: 0.6rem;
+}
+.mb-1 {
+  margin-bottom: 1rem;
+}
+.mb-2 {
+  margin-bottom: 2rem;
+}
+.mb-3 {
+  margin-bottom: 3rem;
+}
+
+/* Margin - left */
+.ml {
+  margin: 0 0 0 var(--gap);
+}
+
+.ml-05 {
+  margin: 0 0 0 0.5rem;
+}
+.ml-1 {
+  margin: 0 0 0 1rem;
+}
+.ml-2 {
+  margin: 0 0 0 2rem;
+}
+.ml-3 {
+  margin: 0 0 0 3rem;
+}
+
+/* Margin - right */
+.mr {
+  margin: 0 var(--gap) 0 0;
+}
+
+.mr-05 {
+  margin: 0 0.5rem 0 0;
+}
+.mr-1 {
+  margin: 0 1rem 0 0;
+}
+.mr-2 {
+  margin: 0 2rem 0 0;
+}
+.mr-3 {
+  margin: 0 3rem 0 0;
+}
+
+/* Margin - cancel */
+.mx-0 {
+  margin-left: 0;
+  margin-right: 0;
+}
+.my-0 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.mt-0 {
+  margin-top: 0;
+}
+
+.mb-0 {
+  margin-bottom: 0;
+}
+.ml-0 {
+  margin-left: 0;
+}
+.mr-0 {
+  margin-right: 0;
+}
+
+.m-0 {
+  margin: 0;
+}
+
+/* @Size of the element */
+/* Height */
+.h-3rem {
+  height: 3rem;
+}
+.h-5 {
+  height: 5%;
+}
+.h-7rem {
+  height: 7rem;
+}
+.h-10 {
+  height: 10%;
+}
+.h-20 {
+  height: 20%;
+}
+.h-20vh {
+  height: 20vh;
+}
+.h-30 {
+  height: 30%;
+}
+.h-40 {
+  height: 40%;
+}
+.h-40vh {
+  height: 40vh;
+}
+.h-45 {
+  height: 45%;
+}
+.h-45vh {
+  height: 45vh;
+}
+.h-50 {
+  height: 50%;
+}
+.h-60 {
+  height: 60%;
+}
+.h-70 {
+  height: 70%;
+}
+
+.h-70vh {
+  height: 70vh;
+}
+
+.h-80 {
+  height: 80%;
+}
+.h-80vh {
+  height: 80vh;
+}
+.h-90 {
+  height: 90%;
+}
+.h-100 {
+  height: 100%;
+}
+.h-100vh {
+  height: 100vh;
+}
+
+/* width */
+.w-1rem {
+  width: 1rem;
+}
+.w-3rem {
+  width: 3rem;
+}
+.w-3dot5rem {
+  width: 3.5rem;
+}
+.w-5 {
+  width: 5%;
+}
+.w-5rem {
+  width: 5rem;
+}
+.w-10 {
+  width: 10%;
+}
+.w-10vw {
+  width: 10vw;
+}
+.w-15 {
+  width: 15%;
+}
+.w-15vw {
+  width: 15vw;
+}
+.w-20 {
+  width: 20%;
+}
+.w-20vw {
+  width: 20vw;
+}
+.w-30 {
+  width: 30%;
+}
+.w-30vw {
+  width: 30vw;
+}
+.w-40 {
+  width: 40%;
+}
+.w-50 {
+  width: 50%;
+}
+.w-60 {
+  width: 60%;
+}
+.w-70 {
+  width: 70%;
+}
+.w-80 {
+  width: 80%;
+}
+.w-90 {
+  width: 90%;
+}
+.w-100 {
+  width: 100%;
+}
+
+.w-100vw {
+  width: 100vw;
+}
+
+/* @background */
+.bg-cp-1,
+.bg-cp-elem {
+  background: var(--cp-1_1);
+}
+.bg-cp-1-light {
+  background: var(--cp-1_1-light);
+}
+
+.bg-cp-2 {
+  background: var(--cp-1_2);
+}
+
+.bg-cp-3,
+.bg-cp-bg {
+  background: var(--cp-1_3);
+}
+.bg-cp-4 {
+  background: var(--cp-1_4);
+}
+
+.bg-cp-2-light {
+  background: var(--cp-1_2-light);
+}
+
+.bg-cp-2-light-c {
+  background: var(--cp-1_2-light-c);
+}
+
+.bg-warning,
+.bg-danger {
+  background: var(--danger-color);
+}
+
+.bg-safe,
+.bg-success {
+  background: var(--success-color);
+}
+
+.bg-fade {
+  background: var(--fade-color);
+}
+
+.bg-fade-dark {
+  background: var(--fade-color-dark);
+}
+
+.bg-gray-1 {
+  background: var(--gray-1);
+}
+
+.bg-gray-2 {
+  background: var(--gray-2);
+}
+
+.bg-gray-3 {
+  background: var(--gray-3);
+}
+.bg-gray-4 {
+  background: var(--gray-4);
+}
+
+.bg-gray-5 {
+  background: var(--gray-4);
+}
+
+.bg-white {
+  background: white;
+}
+
+.bg-no {
+  background: rgba(255, 255, 255, 0);
+}
+
+.bg-blurGlass {
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(40px);
+  border: solid 2px transparent;
+  background-clip: padding-box;
+  box-shadow: 10px 10px 10px rgba(46, 54, 68, 0.03);
+}
+
+/* @border */
+.bd-light {
+  border: 1px solid var(--fade-color);
+}
+
+.bd-light-r {
+  border-right: 1px solid var(--fade-color);
+}
+
+.bd-light-2px {
+  border: 2px solid var(--fade-color);
+}
+
+.bd-light-t-05 {
+  border-top: 0.5px solid var(--fade-color);
+}
+
+.bd-light-b-05 {
+  border-bottom: 0.5px solid var(--fade-color);
+}
+
+.bd-light-t {
+  border-top: 1px solid var(--fade-color);
+}
+
+.bd-light-b {
+  border-bottom: 1px solid var(--fade-color);
+}
+
+.bd-light-b-2px {
+  border-bottom: 2px solid var(--fade-color);
+}
+
+.bd-cp-2 {
+  border: 1px solid var(--cp-1_2);
+}
+
+.bd-cp-2-l-2px {
+  border-left: 2px solid var(--fade-color);
+}
+
+.bd-cp-2-l-2px-dotted {
+  border-left: 2px dotted var(--fade-color);
+}
+
+.bd-cp-2-r-2px-dotted {
+  border-right: 2px dotted var(--fade-color);
+}
+
+.bd-cp-2-t-2px {
+  border-top: 2px solid var(--fade-color);
+}
+
+.bd-cp-2-b-2px {
+  border-bottom: 2px solid var(--fade-color);
+}
+
+/* radious border */
+.bd-radius-s {
+  border-radius: var(--small);
+}
+.bd-round {
+  border-radius: 50%;
+}
+
+.bd-radius-top {
+  border-top-left-radius: var(--small);
+  border-top-right-radius: var(--small);
+}
+
+/* transparent specific border */
+.bd-0,
+.bd-no {
+  border: 1px solid rgba(255, 255, 255, 0);
+}
+
+.bd-no-t {
+  border-top: 1px solid rgba(255, 255, 255, 0);
+}
+
+.bd-no-l {
+  border-left: 1px solid rgba(255, 255, 255, 0);
+}
+
+.bd-no-b {
+  border-bottom: 1px solid rgba(255, 255, 255, 0);
+}
+
+.bd-no-r {
+  border-right: 1px solid rgba(255, 255, 255, 0);
+}
+
+.bd-no-y,
+.bd-no-v {
+  border-top: 1px solid rgba(255, 255, 255, 0);
+  border-bottom: 1px solid rgba(255, 255, 255, 0);
+}
+
+.bd-no-x,
+.bd-no-h {
+  border-left: 1px solid rgba(255, 255, 255, 0);
+  border-right: 1px solid rgba(255, 255, 255, 0);
+}
+
+/* @Shadow */
+/* box-shadow: h-offset v-offset blur spread color */
+.shadow-b {
+  box-shadow: 0px 5px 10px 0px var(--fade-color);
+}
+
+.shadow-inset-b {
+  box-shadow: inset 10px 10px 10px 10px red;
+}
+
+.opacity {
+  opacity: 0;
+}
+
+/* @Hover React */
+.hover-cp-2:hover {
+  background: var(--cp-1_2);
+  transition: ease-out 0.3s;
+}
+
+.hover-fc-cp-2:hover {
+  color: var(--cp-1_2);
+  transition: ease-out 0.3s;
+}
+
+.hover-cp-2-light:hover {
+  background: var(--cp-1_2-light);
+  transition: ease-out 0.3s;
+}
+
+.hover-darker:hover {
+  opacity: 0.1;
+  transition: ease-out 0.3s;
+}
+
+.hover-spin-90:hover {
+  cursor: pointer;
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+  transition: all 0.3s;
+}
+
+.hover-pointer:hover {
+  cursor: pointer;
+}
+
+.hover-moveUp:hover {
+  -webkit-transform: translateY(-3px);
+  -ms-transform: translateY(-3px);
+  transform: translateY(-3px);
+  box-shadow: 0px 2px 4px 1px var(--gray-4);
+  transition: all 0.2s;
+}
+
+.hover-moveUp-darker:hover {
+  -webkit-transform: translateY(-3px);
+  -ms-transform: translateY(-3px);
+  transform: translateY(-3px);
+  box-shadow: 0px 2px 4px 1px var(--cp-1_4);
+  transition: all 0.2s;
+}
+
+.hover-shadow:hover {
+  /* color: green; */
+  transition: all 0.2s;
+  text-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.8);
+}
+
+.hover-no:hover,
+.hover-0:hover {
+  color: var(--cp-1_2);
+  background: rgba(255, 255, 255, 0);
+  box-shadow: none;
+  /* border: 1px solid rgba(255, 255, 255, 0); */
+  outline: none;
+  transition: all 0.2s;
+}
+
+/* @Cursor */
+.grabbable {
+  cursor: move; /* fallback if grab cursor is unsupported */
+  cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+  /* transition: 0.1s cubic-bezier(0.1, 0.5, 0.1, 0.5); */
+}
+.grabbable:active {
+  cursor: grabbing;
+  cursor: -moz-grabbing;
+  cursor: -webkit-grabbing;
+}
+
+/* @List of osCases */
+/* .animationHeight {
+  animation: growHeight 1s 1;
+  -webkit-animation: growHeight 1s 1;
+}
+@-webkit-keyframes growHeight {
+  0% {
+    height: 0px;
+  }
+  25% {
+    height: 25px;
+  }
+  50% {
+    height: 50px;
+  }
+  75% {
+    height: 55px;
+  }
+  100% {
+    height: 60px;
+  }
+} */
+
+/* @Loader */
+/* @Loading spinner */
+.loader {
+  border: 3px dotted var(--cp-1_3);
+  border-radius: 50%;
+  /* border-top: 5px dotted var(--cp-1_2-c); */
+  width: 55px;
+  height: 55px;
+  -webkit-animation: spin 5s linear infinite; /* Safari */
+  animation: spin 5s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    opacity: 1;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(360deg);
+    opacity: 1;
+  }
+}
+
+/* @Print setting */
+
+.showWhenPrint {
+  display: none;
+}
+
+/* div.portrait,
+div.landscape {
+  margin: 10px auto;
+  padding: 10mm;
+  border: solid 1px black;
+  overflow: hidden;
+  page-break-after: always;
+  background: white;
+} */
+
+/* div.landscape {
+  width: 276mm;
+  max-width: 276mm;
+  height: 190mm;
+} */
+
+@media print {
+  * {
+    -webkit-print-color-adjust: exact !important;
+  }
+  .whenPrint {
+    width: 100vw;
+  }
+  .whenPrintNoBorder {
+    border-color: rgba(255, 255, 255, 0);
+  }
+  .noBreak {
+    break-inside: avoid;
+  }
+  /* If the node with this class, the node will not show when print. */
+  .noPrint {
+    display: none;
+    /* padding-left: 0; */
+  }
+  .whenPrintFSSmall {
+    font-size: 0.8rem;
+  }
+  .showWhenPrint {
+    display: inline;
+  }
+
+  .grid-Inquiry-Mtrl {
+    display: grid;
+    grid-template-columns: 3rem 1fr 1fr 8rem 5rem 8rem;
+  }
+
+  .grid-Quo-Mtrl {
+    display: grid;
+    grid-template-columns: 5rem 1fr 5rem 5rem 5rem;
+  }
+  .grid-Quo-otherExpanse {
+    display: grid;
+    grid-template-columns: 7rem 1fr 5rem;
+  }
+
+  .grid-Pur-Mtrl {
+    display: grid;
+    grid-template-columns: 3rem 7rem 5rem 1fr 6rem 5rem 5rem;
+  }
+
+  .grid-OsMtrl {
+    display: grid;
+    grid-template-columns: 4rem 6rem 8rem 8rem 8rem 1fr 5rem 6rem 4rem 6rem;
+  }
+  /* div.portrait,
+  div.landscape {
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+  } */
+  div.long-row-print {
+    /* margin: 10px auto; */
+    /* padding: 10mm; */
+    /* border: solid 1px black; */
+    border: none;
+    background: none;
+    overflow: hidden;
+    page-break-after: always;
+    background: white;
+    width: 276mm;
+    /* transform: rotate(270deg) translate(-276mm, 0); */
+    transform-origin: 0 0;
+  }
+}
+
+@page {
+  size: A4 portrait;
+  /* size: auto; auto is the initial value */
+  margin: 0;
+  padding: 0;
+  /* margin-top: -45px; */
+}
+@page :first {
+  /* margin-top: -45px; */
+}
+
+/* @test */
+/* A quick way to check the area of the element */
+
+.test-1 {
+  background: gray;
+}
+
+.test-2 {
+  background: rgb(246, 247, 187);
+}
+
+.test-3 {
+  background: hotpink;
+}
+
+.test-4 {
+  background: lawngreen;
+}
+
+.test-5 {
+  background: slateblue;
+}
