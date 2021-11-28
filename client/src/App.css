@@ -2263,20 +2263,19 @@ div.landscape {
 }
 
 .grid-NH_Body_sub {
+  height: 100%;
+  width: 100%;
   display: grid;
-  grid-template-rows: 15rem auto;
 }
 
 .body_size_L {
-  height: 100%;
-  width: 100%;
+  grid-template-rows: 15rem auto;
 }
 .body_size_R {
-  height: 70%;
-  width: 100%;
+  grid-template-rows: 15rem auto 0.2fr;
 }
 
-.grid-NH_Body_sub_L {
+.grid-NH_Body_sub_R {
   height: 100%;
   overflow: auto;
 }
@@ -2293,6 +2292,10 @@ div.landscape {
 }
 
 .grid-NH_Body_sub_TR {
+  margin: var(--borderGap) 0 0 var(--borderGap);
+  border-bottom: solid var(--gray-4) 1px;
+}
+.grid-NH_Body_sub_MR {
   margin: var(--borderGap) 0 0 var(--borderGap);
   border-bottom: solid var(--gray-4) 1px;
 }

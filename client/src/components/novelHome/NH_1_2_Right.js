@@ -8,15 +8,18 @@ function NH_1_2_Right() {
         <div className='grid-NH_Body_sub_TR'>
           3 - {value}
         </div>
-        <div className='grid-NH_Body_sub_BR'>
+        <div className='grid-NH_Body_sub_MR'>
           4 - {value}
+        </div>
+        <div className='grid-NH_Body_sub_BR'>
+          Read More
         </div>
       </div>
     )
   }
 
   return (
-    <div className='grid-NH_Body_sub_L'>
+    <div className='grid-NH_Body_sub_R'>
       {['steve', 'jason'].map((i) => {
         return gridContent(i)
       })}
