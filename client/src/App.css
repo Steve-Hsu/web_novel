@@ -8,12 +8,14 @@
 :root {
   /* Color plate */
   /* Applying the _1 as the background Color or opposite the _4 as the background Color */
-  /* --cp-1_1: #f6f4e6; */
   --cp-1_1: #f5f5f5;
-  /* --cp-1_2: #fddb3a; */
   --cp-1_2: #fddb3a;
   --cp-1_3: #52575d;
   --cp-1_4: #41444b;
+
+  --cp-2_1: #e9e6e4;
+  --cp-2_2: #94918f;
+  --cp-2_3: #121418;
 
   /* color family */
   --cp-1_1-light: #fbfaf5;
@@ -56,6 +58,9 @@
   --btn-h-s: 25px;
   --btn-h-m: 40px;
   --btn-h-l: 65px;
+
+  --bodyColor: var(--cp-2_1);
+  --bgColor: var(--cp-2_3);
 }
 
 * {
@@ -78,8 +83,11 @@ body {
   font-family: "Roboto", sans-serif;
   font-size: 1rem;
   line-height: 1.6;
-  background-color: #fff;
+  background-color: var(--bgColor);
   color: var(--cp-1_4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 a {
@@ -111,10 +119,13 @@ img {
 /* @Utilities --------------------- */
 /* @container */
 .container {
-  max-width: 1100px;
+  /* max-width: 1100px; */
   margin: 0 1rem;
   overflow: hidden;
-  padding: 0 2rem;
+  /* padding: 0 2rem; */
+  height: 97vh;
+  width: 97vw;
+  background-color: var(--bodyColor);
 }
 
 .container-with-navbar {
@@ -2239,8 +2250,9 @@ div.landscape {
   padding: 2rem 0;
   display: grid;
   grid-template-columns: 5fr 17fr 9fr;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
+  background-color: #e9e6e4;
 }
 
 /* Body */
@@ -2308,7 +2320,7 @@ div.landscape {
   white-space: nowrap;
   overflow: hidden;
   height: 2rem;
-  background: #000000;
+  background: var(--bgColor);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2320,8 +2332,8 @@ div.landscape {
   padding-left: 4.4rem;
   text-indent: 0;
   animation: marquee 12s linear infinite;
-  font-weight: 500;
-  font-size: 2rem;
+  /* font-weight: 500; */
+  font-size: 1.5rem;
   line-height: 125%;
   letter-spacing: -0.04em;
   text-transform: uppercase;

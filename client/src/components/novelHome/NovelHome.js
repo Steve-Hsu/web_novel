@@ -10,20 +10,14 @@ const NovelHome = () => {
   const nContext = useContext(NContext);
   const { title } = nContext;
   return (
-    <div className='grid-NovelHome'>
-      <LeftBar />
-      <NH_1_Body />
-      <NH_2_RightBar />
-      {/* <div className='test-1'>
-        1
+    <div className='container'>
+      <div className='grid-NovelHome'>
+        <LeftBar />
+        <NH_1_Body />
+        <NH_2_RightBar />
       </div>
-      <div className='test-2'>
-        2
-      </div>
-      <div className='test-3'>
-        3
-      </div> */}
     </div>
+
   )
 }
 
