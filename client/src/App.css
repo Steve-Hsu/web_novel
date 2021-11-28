@@ -1,7 +1,6 @@
 /* Import google font */
 @import url("https://fonts.googleapis.com/css?family=Roboto");
 /* Steve Hsu */
-/* This sheet is based by App.css from Brad Traversy */
 /* I customized some features of this sheet */
 /* Every topic start with "@", so you can have a quick view by searching the "@". */
 
@@ -51,26 +50,12 @@
   --middle: 10px;
   --large: 16px;
 
+  --borderGap: 1rem;
+
   /* btn height Height */
   --btn-h-s: 25px;
   --btn-h-m: 40px;
   --btn-h-l: 65px;
-
-  /* .grid-gap-row-ti {
-  row-gap: 0.2rem; 
-}
-
-.grid-gap-row-sm {
-  row-gap: 0.3rem;
-}
-
-.grid-gap-row-md {
-  row-gap: 1.2rem;
-}
-
-.grid-gap-row-lg {
-  row-gap: 2rem;
-} */
 }
 
 * {
@@ -257,55 +242,69 @@ img {
 }
 
 /* Special grip */
-.grid-05-1-1-1-3 {
+.grid-NovelHome {
+  padding: 2rem 0;
   display: grid;
-  grid-template-columns: 0.5fr repeat(3, 1fr) 3fr;
+  grid-template-columns: 5fr 17fr 9fr;
+  height: 100vh;
+  width: 100vw;
+}
+.grid-NH_Body {
+  display: grid;
+  grid-template-columns: 5fr 8fr;
+  padding: 0 var(--borderGap);
 }
 
-.grid-1-5-1-1-1-1-1 {
+.grid-NH_RightBar {
   display: grid;
-  grid-template-columns: 1fr 5fr repeat(5, 1fr);
+  grid-template-rows: 2rem 13rem auto;
+  padding: 0 var(--borderGap);
+  border-left: solid var(--gray-4) 1px;
 }
 
-.grid-mPrice {
+.grid-NH_Body_sub {
   display: grid;
-  grid-template-columns: 20px 1fr 1.7fr 0.6fr 0.6fr 0.6fr 0.6fr 0.6fr 30px;
+  grid-template-rows: 15rem auto;
 }
 
-.grid-mPrice-quo {
-  display: grid;
-  grid-template-columns: 20px 1fr 1.7fr 0.6fr 0.6fr 0.6fr 0.6fr 0.6fr 0.6fr 30px;
-  /* grid-auto-rows: auto; */
+.body_size_L {
+  height: 100%;
+  width: 100%;
+}
+.body_size_R {
+  height: 70%;
+  width: 100%;
 }
 
-.grid-Inquiry-Mtrl {
-  display: grid;
-  grid-template-columns: 3rem 0.8fr 1fr 10rem 8rem 10rem;
+.grid-NH_Body_sub_L {
+  height: 100%;
+  overflow: auto;
 }
 
-.grid-Quo-Mtrl {
-  display: grid;
-  grid-template-columns: 8rem 1fr 8rem 8rem 5rem;
+.grid-NH_Body_sub_TL {
+  margin: var(--borderGap) var(--borderGap) 0 0;
+  border-bottom: solid var(--gray-4) 1px;
 }
 
-.grid-Quo-otherExpanse {
-  display: grid;
-  grid-template-columns: 10rem 1fr 5rem;
+.grid-NH_Body_sub_BL {
+  margin: var(--borderGap) 0 0;
+  padding-right: var(--borderGap);
+  border-right: solid var(--gray-4) 1px;
 }
 
-.grid-Quo-condition {
-  display: grid;
-  grid-template-columns: 12.8rem 1fr;
+.grid-NH_Body_sub_TR {
+  margin: var(--borderGap) 0 0 var(--borderGap);
+  border-bottom: solid var(--gray-4) 1px;
+}
+.grid-NH_Body_sub_BR {
+  margin: var(--borderGap) 0 0 var(--borderGap);
 }
 
-.grid-Pur-Mtrl {
-  display: grid;
-  grid-template-columns: 3rem 10rem 10rem 10rem 8rem 1fr 8rem;
-}
-
-.grid-OsMtrl {
-  display: grid;
-  grid-template-columns: 4rem 6rem 8rem 8rem 8rem 1fr 5rem 6rem 4rem 6rem;
+.grid-NH_Body_sub_BR_lastPart {
+  padding-top: var(--borderGap);
+  margin-left: var(--borderGap);
+  border-top: solid var(--gray-4) 1px;
+  height: 30%;
 }
 
 /* grid gap */
@@ -360,48 +359,8 @@ img {
 }
 
 /* @Custom grid */
-/* Purchase Order Sheet */
-.gridCol-1-3 {
-  grid-column: 1/3;
-}
-.gridCol-3-7 {
-  grid-column: 3/7;
-}
-.gridCol-7-9 {
-  grid-column: 7/9;
-}
-.gridCol-9-10 {
-  grid-column: 9/10;
-}
-.gridCol-10-11 {
-  grid-column: 10/11;
-}
-.gridCol-11-12 {
-  grid-column: 11/12;
-}
-.gridCol-12-13 {
-  grid-column: 12/13;
-}
-.gridCol-13-14 {
-  grid-column: 13/14;
-}
-.gridCol-14-16 {
-  grid-column: 14/16;
-}
 
 /* @button */
-/* .btn {
-  display: inline-block;
-  position: relative;
-  padding: 0.4rem 1.3rem;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: opacity 0.2s ease-in;
-  outline: none;
-  justify-content: center;
-  align-content: center;
-} */
-
 .btn {
   display: inline-block;
   position: relative;
@@ -1037,6 +996,8 @@ input[type="submit"]:focus {
 /* @Leftbar */
 
 .leftbar {
+  border-right: solid var(--gray-4) 1px;
+  padding: 0 var(--borderGap);
 }
 
 .leftbar-component {

@@ -2,8 +2,7 @@ import {
   ADD
 } from '../types';
 
-// eslint-disable-next-line 
-export default (state, action) => {
+export default function NReducer(state, action) {
   switch (action.type) {
     case ADD:
       return {
@@ -13,3 +12,4 @@ export default (state, action) => {
       return state;
   }
 }
+

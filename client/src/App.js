@@ -3,8 +3,7 @@ import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
 // Components
-import NovelHome from './components/novel/NovelHome';
-import NovelReader from './components/novel/NovelReader';
+import NovelHome from './components/novelHome/NovelHome';
 import NotFound from './components/NotFound'
 
 // Context
@@ -14,10 +13,9 @@ function App() {
   return (
     <NState>
       <Router>
-        <div className='container'>
+        <div>
           <Routes>
             <Route exact path='/' element={<NovelHome />} />
-            <Route exact path='/api/v1/novels' element={<NovelReader />} />
             <Route path='*' element={<NotFound />} />
           </Routes>
         </div>
