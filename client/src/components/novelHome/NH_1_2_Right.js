@@ -1,27 +1,45 @@
-import React from 'react'
+import React from 'react';
+import image_1 from '../../images/img_1.jpg'
+import image_2 from '../../images/img_2.jpg'
 
 function NH_1_2_Right() {
 
-  const gridContent = (value) => {
+  const novelData = [
+    {
+      title: 'Steve',
+      img: image_1,
+      subtitle: 'what what what',
+      snippet: 'what what what '
+    },
+    {
+      title: 'Jason',
+      img: image_2,
+      subtitle: 'what what what',
+      snippet: 'what what what '
+    }
+  ]
+
+  const gridContent = (i, index) => {
     return (
-      <div className='grid-NH_Body_sub body_size_R'>
-        <div className='grid-NH_Body_sub_TR'>
-          3 - {value}
+      <div className='grid-NH_Body_sub body_size_R' key={`${i.title}${index}`}>
+        <div className='grid-NH_Body_sub_TR text-body_title'>
+          {i.title}
         </div>
         <div className='grid-NH_Body_sub_MR'>
-          4 - {value}
+          <div className='as'>
+          </div>
         </div>
         <div className='grid-NH_Body_sub_BR'>
           Read More
         </div>
-      </div>
+      </div >
     )
   }
 
   return (
     <div className='grid-NH_Body_sub_R'>
-      {['steve', 'jason'].map((i) => {
-        return gridContent(i)
+      {novelData.map((i, idx) => {
+        return gridContent(i, idx)
       })}
       <div className='grid-NH_Body_sub_BR_lastPart'>No more items</div>
     </div>
