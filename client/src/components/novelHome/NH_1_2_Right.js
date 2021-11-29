@@ -48,9 +48,11 @@ function NH_1_2_Right() {
         </div>
         <div className='grid-NH_Body_sub_MR'>
           <img src={i.img} className='img' />
+          <div className='subtitle'>{i.subtitle}</div>
+          <div className='snippet'>{i.snippet}</div>
         </div>
-        <div className='grid-NH_Body_sub_BR'>
-          Read More
+        <div className='grid-NH_Body_sub_BR hover'>
+          <i className="fas fa-arrow-right "> Read More</i>
         </div>
       </div >
     )

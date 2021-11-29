@@ -84,7 +84,7 @@ body {
   font-size: 1rem;
   line-height: 1.6;
   background-color: var(--bgColor);
-  color: var(--cp-1_4);
+  color: var(--cp-2_3);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -2261,6 +2261,7 @@ div.landscape {
   font-size: 7rem;
   place-items: center;
 }
+
 .grid-NH_Body {
   height: 97vh;
   position: relative;
@@ -2305,12 +2306,14 @@ div.landscape {
 .grid-NH_Body_sub_TR {
   margin: 0 0 0 var(--borderGap);
   border-bottom: solid var(--gray-4) 1px;
+  min-width: 100%;
 }
+
 .grid-NH_Body_sub_MR {
   height: 100%;
   margin: var(--borderGap) 0 0 var(--borderGap);
   border-bottom: solid var(--gray-4) 1px;
-  background-color: #3a5cfd;
+  /* background-color: #3a5cfd; */
 }
 
 .grid-NH_Body_sub_MR > .img {
@@ -2319,13 +2322,30 @@ div.landscape {
   object-fit: cover;
 }
 
+.subtitle {
+  font-size: 3rem;
+}
+.snippet {
+}
+
 .grid-NH_Body_sub_BR {
+  width: auto;
   margin: var(--borderGap) 0 0 var(--borderGap);
+  padding-top: var(--borderGap);
+  text-align: right;
+}
+
+.grid-NH_Body_sub_BR > .fas {
+  font-size: 2rem;
+  cursor: pointer;
 }
 
 .grid-NH_Body_sub_BR_lastPart {
+  font-size: 2rem;
+  text-align: center;
+  vertical-align: center;
   padding-top: var(--borderGap);
-  margin-left: var(--borderGap);
+  margin: var(--borderGap) 0 0 var(--borderGap);
   border-top: solid var(--gray-4) 1px;
   height: 20%;
 }
