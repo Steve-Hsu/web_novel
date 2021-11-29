@@ -943,6 +943,7 @@ input[type="submit"]:focus {
 .leftbar {
   border-right: solid var(--gray-4) 1px;
   padding: 0 var(--borderGap);
+  height: 92%;
 }
 
 .leftbar-component {
@@ -2250,7 +2251,7 @@ div.landscape {
   padding: 2rem 0;
   display: grid;
   grid-template-columns: 5fr 17fr 9fr;
-  height: 100%;
+  height: 97vh;
   width: 100%;
   background-color: #e9e6e4;
 }
@@ -2261,13 +2262,16 @@ div.landscape {
   place-items: center;
 }
 .grid-NH_Body {
+  height: 97vh;
+  position: relative;
   display: grid;
   grid-template-columns: 5fr 8fr;
   padding: 0 var(--borderGap);
 }
 
 .grid-NH_Body_sub {
-  height: 100%;
+  position: relative;
+  height: 92%;
   width: 100%;
   display: grid;
 }
@@ -2277,10 +2281,14 @@ div.landscape {
 }
 .body_size_R {
   grid-template-rows: 12rem auto 4rem;
+  /* grid-template-rows: 20% 30% 10%; */
 }
 
 .grid-NH_Body_sub_R {
+  height: 97vh;
+  position: relative;
   overflow: auto;
+  overflow-x: hidden;
 }
 
 .grid-NH_Body_sub_TL {
@@ -2299,18 +2307,16 @@ div.landscape {
   border-bottom: solid var(--gray-4) 1px;
 }
 .grid-NH_Body_sub_MR {
-  /* position: inherit; */
   height: 100%;
   margin: var(--borderGap) 0 0 var(--borderGap);
   border-bottom: solid var(--gray-4) 1px;
   background-color: #3a5cfd;
 }
 
-.grid-NH_Body_sub_MR > .as {
-  background-image: url("../src/images/img_1.jpg");
-  background-size: cover;
-  height: 50%;
+.grid-NH_Body_sub_MR > .img {
+  height: 20vh;
   width: 100%;
+  object-fit: cover;
 }
 
 .grid-NH_Body_sub_BR {
@@ -2328,7 +2334,7 @@ div.landscape {
 .grid-NH_RightBar {
   display: grid;
   grid-template-rows: 2rem 10rem auto;
-
+  height: 92%;
   border-left: solid var(--gray-4) 1px;
 }
 
