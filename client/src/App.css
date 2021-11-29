@@ -2302,6 +2302,12 @@ div.landscape {
   padding-right: var(--borderGap);
   border-right: solid var(--gray-4) 1px;
 }
+.grid-NH_Body_sub_BL > .text {
+  /* margin: 10vh, 0, 0px, 0; */
+  font-size: 2rem;
+  position: relative;
+  top: 92%;
+}
 
 .grid-NH_Body_sub_TR {
   margin: 0 0 0 var(--borderGap);
@@ -2326,6 +2332,8 @@ div.landscape {
   font-size: 3rem;
 }
 .snippet {
+  max-height: 8rem;
+  overflow: hidden;
 }
 
 .grid-NH_Body_sub_BR {
