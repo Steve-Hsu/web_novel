@@ -9,6 +9,7 @@ import NH_2_RightBar from './NH_2_RightBar';
 const NovelHome = () => {
   const nContext = useContext(NContext);
   const { title } = nContext;
+
   return (
     <div className='container'>
       <div className='grid-NovelHome'>

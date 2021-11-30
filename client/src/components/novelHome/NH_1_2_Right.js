@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import image_1 from '../../images/img_1.jpg'
 import image_2 from '../../images/img_2.jpg'
 import image_3 from '../../images/img_3.jpg'
 import image_4 from '../../images/img_4.jpg'
 import image_5 from '../../images/img_5.jpg'
+import NContext from '../../context/novelContext/nContext'
 
 function NH_1_2_Right() {
+  const nContext = useContext(NContext)
+  const { changePage } = nContext
 
   const novelData = [
     {
@@ -40,6 +43,10 @@ function NH_1_2_Right() {
     }
   ]
 
+  const onClick = (e) => {
+    changePage('reader')
+  }
+
   const gridContent = (i, index) => {
     return (
       <div className='grid-NH_Body_sub body_size_R' key={`${i.title}${index}`}>
@@ -51,8 +58,8 @@ function NH_1_2_Right() {
           <div className='subtitle'>{i.subtitle}</div>
           <div className='snippet'>{i.snippet}</div>
         </div>
-        <div className='grid-NH_Body_sub_BR hover'>
-          <i className="fas fa-arrow-right "> Read More</i>
+        <div className='grid-NH_Body_sub_BR'>
+          <i className="fas fa-arrow-right hover-pointer" onClick={onClick}> Read More</i>
         </div>
       </div >
     )

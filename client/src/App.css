@@ -941,9 +941,10 @@ input[type="submit"]:focus {
 /* @Leftbar */
 
 .leftbar {
+  flex: 1 1 100px;
   border-right: solid var(--gray-4) 1px;
   padding: 0 var(--borderGap);
-  height: 92%;
+  height: 100%;
 }
 
 .leftbar-component {
@@ -2249,11 +2250,28 @@ div.landscape {
 /* Special grip */
 .grid-NovelHome {
   padding: 2rem 0;
-  display: grid;
-  grid-template-columns: 5fr 17fr 9fr;
+  display: flex;
   height: 97vh;
   width: 100%;
   background-color: #e9e6e4;
+}
+
+@keyframes read_Mode {
+  0% {
+    grid-template-columns: 5fr 17fr 9fr;
+  }
+  25% {
+    grid-template-columns: 5fr 18fr 8fr;
+  }
+  50% {
+    grid-template-columns: 5fr 19fr 7fr;
+  }
+  75% {
+    grid-template-columns: 5fr 20fr 6.5fr;
+  }
+  100% {
+    grid-template-columns: 5fr 20fr 6fr;
+  }
 }
 
 /* Body */
@@ -2263,6 +2281,7 @@ div.landscape {
 }
 
 .grid-NH_Body {
+  flex: 7 1 100px;
   height: 97vh;
   position: relative;
   display: grid;
@@ -2345,7 +2364,6 @@ div.landscape {
 
 .grid-NH_Body_sub_BR > .fas {
   font-size: 2rem;
-  cursor: pointer;
 }
 
 .grid-NH_Body_sub_BR_lastPart {
@@ -2360,10 +2378,39 @@ div.landscape {
 
 /* Right Bar */
 .grid-NH_RightBar {
+  flex: 3 1 100px;
   display: grid;
   grid-template-rows: 2rem 10rem auto;
-  height: 92%;
+  height: 100%;
   border-left: solid var(--gray-4) 1px;
+}
+
+.grid-NH_RightBar-Read_Mode {
+  flex: 2 1 100px;
+  animation: RB_Shrink 1s ease;
+}
+
+.grid-NH_RightBar-Read_Mode_Back {
+  flex: 3 1 100px;
+  animation: RB_Shrink_Back 1s ease;
+}
+
+@keyframes RB_Shrink {
+  0% {
+    flex: 3 1 100px;
+  }
+  100% {
+    flex: 2 1 100px;
+  }
+}
+
+@keyframes RB_Shrink_Back {
+  0% {
+    flex: 2 1 100px;
+  }
+  100% {
+    flex: 3 1 100px;
+  }
 }
 
 .marquee {
