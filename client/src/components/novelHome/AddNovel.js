@@ -1,4 +1,4 @@
-import React, { useState, } from 'react'
+import React from 'react'
 
 // Components
 import LeftBar from '../commonParts/LeftBar';
@@ -6,11 +6,6 @@ import AN_1_Body from './AN_1_Body';
 import NH_2_RightBar from './NH_2_RightBar';
 
 function AddNovel() {
-
-  const [addNovelState, setAddNovelState] = useState({
-    firstTimeDownload: true,
-    novel: ''
-  })
 
   return (
     <div>

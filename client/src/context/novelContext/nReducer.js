@@ -1,6 +1,7 @@
 import {
   ADD,
   UPDATE_CURRENTPAGE,
+  UPDATE,
 } from '../types';
 
 export default function NReducer(state, action) {
@@ -14,6 +15,11 @@ export default function NReducer(state, action) {
       return {
         ...state,
         currentPage: action.payload,
+      }
+    case UPDATE:
+      return {
+        ...state,
+        context: action.payload,
       }
     default:
       return state;

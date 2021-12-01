@@ -2299,7 +2299,24 @@ div.landscape {
   height: 97vh;
   position: relative;
   padding: 1.5rem 8rem;
-  overflow-x: scroll;
+  overflow-y: scroll;
+}
+
+.AN_body > form {
+  height: 50vh;
+  width: 100%;
+  /* overflow-y: scroll; */
+}
+
+.AN_body > .dis {
+  white-space: pre-line;
+  white-space: pre-wrap;
+}
+
+.AN_body .textArea {
+  /* white-space: pre-wrap; */
+  width: 100%;
+  height: 80%;
 }
 
 .grid-NH_Body-Reader .title {
