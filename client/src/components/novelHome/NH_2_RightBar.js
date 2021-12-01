@@ -6,7 +6,8 @@ import NH_2_1_Marquee from './NH_2_1_Marquee'
 // Context
 import NContext from '../../context/novelContext/nContext'
 
-function NH_2_RightBar() {
+function NH_2_RightBar({ className }) {
+  const inputClassName = className
   const nContext = useContext(NContext);
   const { currentPage } = nContext;
 
@@ -23,7 +24,7 @@ function NH_2_RightBar() {
     switch (currentPage) {
       case 'reader':
         RBClassName = 'grid-NH_RightBar grid-NH_RightBar-Read_Mode';
-        break
+        break;
       default:
         if (!rBarState.firstTimeDownload) RBClassName = 'grid-NH_RightBar grid-NH_RightBar-Read_Mode_Back'
         break
@@ -32,7 +33,7 @@ function NH_2_RightBar() {
   }
 
   return (
-    <div className={updateRBClassName()}>
+    <div className={inputClassName ? inputClassName : updateRBClassName()}>
       <NH_2_1_Marquee />
       <div className='grid-NH_RBar_T'>333</div>
       <div className='grid-NH_RBar_B'>444</div>

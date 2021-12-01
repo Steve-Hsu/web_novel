@@ -33,7 +33,7 @@ function NH_1_2_Right() {
       title: 'The Women',
       img: image_4,
       subtitle: 'what what what',
-      snippet: 'what what what '
+      snippet: "As someone who works in the porn industry, I know a little secret. It’s true. As a person who hangs out with adult film stars, I know that you don’t have to be 6'1 with a sick physique to get laid.Everyone"
     },
     {
       title: 'Morgan',

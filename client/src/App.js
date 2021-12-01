@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
 // Components
 import NovelHome from './components/novelHome/NovelHome';
+import AddNovel from './components/novelHome/AddNovel'
 import NotFound from './components/NotFound'
 
 // Context
@@ -16,6 +17,7 @@ function App() {
         <div>
           <Routes>
             <Route exact path='/' element={<NovelHome />} />
+            <Route exact path='/addNovel' element={<AddNovel />} />
             <Route path='*' element={<NotFound />} />
           </Routes>
         </div>

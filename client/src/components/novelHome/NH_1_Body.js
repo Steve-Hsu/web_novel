@@ -11,20 +11,18 @@ function NH_1_Body() {
   const nContext = useContext(NContext);
   const { currentPage } = nContext;
 
-  const mainBodyClassName = 'grid-NH_Body'
-
   const returnPage = () => {
     switch (currentPage) {
       case 'novel':
         return (
-          <div className={mainBodyClassName}>
+          <div className="grid-NH_Body">
             <NH_1_1_Left />
             <NH_1_2_Right />
           </div>
         )
       case 'reader':
         return (
-          <div className={mainBodyClassName}>
+          <div className="grid-NH_Body-Reader">
             <NH_1_3_Reader />
           </div>
         )

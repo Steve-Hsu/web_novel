@@ -2278,6 +2278,11 @@ div.landscape {
 .text-body_title {
   font-size: 7rem;
   place-items: center;
+  scroll-snap-align: start;
+}
+
+.text-body_title > .fas {
+  font-size: 1rem;
 }
 
 .grid-NH_Body {
@@ -2287,6 +2292,19 @@ div.landscape {
   display: grid;
   grid-template-columns: 5fr 8fr;
   padding: 0 var(--borderGap);
+}
+.grid-NH_Body-Reader,
+.AN_body {
+  flex: 7 1 100px;
+  height: 97vh;
+  position: relative;
+  padding: 1.5rem 8rem;
+  overflow-x: scroll;
+}
+
+.grid-NH_Body-Reader .title {
+  align-items: center;
+  font-size: 3rem;
 }
 
 .grid-NH_Body_sub {
@@ -2307,8 +2325,9 @@ div.landscape {
 .grid-NH_Body_sub_R {
   height: 97vh;
   position: relative;
-  overflow: auto;
+  overflow-y: scroll;
   overflow-x: hidden;
+  scroll-snap-type: y proximity;
 }
 
 .grid-NH_Body_sub_TL {
@@ -2337,7 +2356,7 @@ div.landscape {
 .grid-NH_Body_sub_MR {
   height: 100%;
   margin: var(--borderGap) 0 0 var(--borderGap);
-  border-bottom: solid var(--gray-4) 1px;
+  /* border-bottom: solid var(--gray-4) 1px; */
   /* background-color: #3a5cfd; */
 }
 
@@ -2386,13 +2405,13 @@ div.landscape {
 }
 
 .grid-NH_RightBar-Read_Mode {
-  flex: 2 1 100px;
-  animation: RB_Shrink 1s ease;
+  flex: 1 1 100px;
+  animation: RB_Shrink 1s ease-out;
 }
 
 .grid-NH_RightBar-Read_Mode_Back {
   flex: 3 1 100px;
-  animation: RB_Shrink_Back 1s ease;
+  animation: RB_Shrink_Back 1s ease-out;
 }
 
 @keyframes RB_Shrink {
@@ -2400,13 +2419,13 @@ div.landscape {
     flex: 3 1 100px;
   }
   100% {
-    flex: 2 1 100px;
+    flex: 1 1 100px;
   }
 }
 
 @keyframes RB_Shrink_Back {
   0% {
-    flex: 2 1 100px;
+    flex: 1 1 100px;
   }
   100% {
     flex: 3 1 100px;
