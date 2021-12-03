@@ -7,6 +7,7 @@ import NH_1_Body from './NH_1_Body';
 import NH_2_RightBar from './NH_2_RightBar';
 
 const NovelHome = () => {
+
   const nContext = useContext(NContext);
   const { title } = nContext;
 

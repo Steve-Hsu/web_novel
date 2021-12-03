@@ -91,12 +91,12 @@ body {
 }
 
 a {
-  color: var(--cp-1_3);
+  color: var(--cp-2_3);
   text-decoration: none;
 }
 
 a:hover {
-  color: var(--cp-1_2);
+  /* color: var(--cp-1_2); */
 }
 
 ul {
@@ -2308,6 +2308,7 @@ div.landscape {
   /* overflow-y: scroll; */
 }
 
+.reader,
 .AN_body > .dis {
   white-space: pre-line;
   white-space: pre-wrap;
@@ -2367,6 +2368,7 @@ div.landscape {
 .grid-NH_Body_sub_TR {
   margin: 0 0 0 var(--borderGap);
   border-bottom: solid var(--gray-4) 1px;
+  overflow: hidden;
   min-width: 100%;
 }
 

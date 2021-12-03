@@ -1,6 +1,7 @@
 const express = require('express');
 const dotenv = require('dotenv');
-const connectDB = require('./config/db')
+const connectDB = require('./config/db');
+const colors = require('colors');
 
 // Middleware
 const logger = require('./middleware/logger')
@@ -38,13 +39,13 @@ const PORT = process.env.PORT || 5000;
 
 app.listen(PORT,
   console.log(
-    `Server running in ${process.env.NODE_ENV} mode on prot ${PORT}`
+    `Server running in ${process.env.NODE_ENV} mode on prot ${PORT}`.blue
   )
 );
 
 // Handle unhandled promise rejection
 process.on('unhandledRejection', (err, promise) => {
-  console.log(`Error: ${err.message}`);
+  console.log(`Error: ${err.message}`.red);
 
   // Close server & exit process
   server.close(() => process.exit(1))
