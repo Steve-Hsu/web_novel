@@ -14,14 +14,14 @@ function App() {
   return (
     <NState>
       <Router>
-        <div>
-          <Routes>
-            <Route exact path='/' element={<NovelHome authed={true} />} />
-            <Route exact path='/addNovel' element={<AddNovel page='addNovel' />} />
-            <Route exact path='/updateNovel' element={<AddNovel page='updateNovel' />} />
-            <Route path='*' element={<NotFound />} />
-          </Routes>
-        </div>
+
+        <Routes>
+          <Route exact path='/' element={<NovelHome />} />
+          <Route exact path='/addNovel' element={<AddNovel page='addNovel' />} />
+          <Route exact path='/updateNovel' element={<AddNovel page='updateNovel' />} />
+          <Route path='*' element={<NotFound />} />
+        </Routes>
+
       </Router>
     </NState>
   );

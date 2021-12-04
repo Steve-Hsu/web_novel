@@ -54,7 +54,6 @@ const NState = (props) => {
     console.log("state id", id)
     try {
       const result = await axios.get(`/api/v1/novels/${id}`);
-      console.log(result)
       dispatch({ type: UPDATE_CONTENT, payload: result.data.novel })
     } catch (err) {
       console.log(err, "something went wrong")

@@ -2,6 +2,7 @@ const express = require('express');
 const dotenv = require('dotenv');
 const connectDB = require('./config/db');
 const colors = require('colors');
+const errorHandler = require('./middleware/error');
 
 // Middleware
 const logger = require('./middleware/logger')
@@ -21,7 +22,11 @@ const app = express();
 app.use(express.json());
 
 // Insert Middleware
-app.use(logger)
+// Use logger only when developing environment
+if (process.env.NODE_ENV === 'development') {
+  app.use(logger)
+}
+
 
 
 // Home page
@@ -30,16 +35,17 @@ app.get('/', (req, res) => {
 })
 
 // Mount routers
-app.use('/api/v1/novels', novels)
+app.use('/api/v1/novels', novels);
 
-
+// ErrorHandler, it must be after the routers, if you want it operates during error happens in routes.
+app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 
 
 app.listen(PORT,
   console.log(
-    `Server running in ${process.env.NODE_ENV} mode on prot ${PORT}`.blue
+    `Server running in ${process.env.NODE_ENV} mode on prot ${PORT}`.bold.green
   )
 );
 
