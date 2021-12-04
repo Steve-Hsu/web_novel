@@ -68,6 +68,14 @@ exports.updateNovel = async (req, res, next) => {
 //@desc    Delete novel
 //@route   DELETE /api/v1/novels/:id
 //@access  Private
-exports.deleteNovel = (req, res, next) => {
-  res.status(200).json({ success: true, msg: `novel ${req.params.id} is deleted` })
+exports.deleteNovel = async (req, res, next) => {
+  try {
+    const novel = await Novel.findByIdAndDelete(req.params.id)
+    if (!novel) {
+      return res.status(400).json({ success: false });
+    }
+    res.status(200).json({ success: true, data: {} });
+  } catch (err) {
+    res.status(400).json({ success: false });
+  }
 }

@@ -40,6 +40,27 @@ const NState = (props) => {
 
 
   // @Function with axios - which is named camelCase with underscore "_"
+  const get_Novels = async () => {
+    try {
+      const result = await axios.get('/api/v1/novels');
+      console.log(result)
+      dispatch({ type: GET_NOVELS, payload: result.data.novels })
+    } catch (err) {
+      console.log(err, "something went wrong")
+    }
+  }
+
+  const get_Novel = async (id) => {
+    console.log("state id", id)
+    try {
+      const result = await axios.get(`/api/v1/novels/${id}`);
+      console.log(result)
+      dispatch({ type: UPDATE_CONTENT, payload: result.data.novel })
+    } catch (err) {
+      console.log(err, "something went wrong")
+    }
+  }
+
   const upload_Novel = async (ANState, currentPage, id) => {
     switch (currentPage) {
       case 'addNovel':
@@ -66,22 +87,12 @@ const NState = (props) => {
     }
   }
 
-  const get_Novels = async () => {
+  const delete_Novel = async (id) => {
+    console.log("delete id", id)
     try {
-      const result = await axios.get('/api/v1/novels');
+      const result = await axios.delete(`/api/v1/novels/${id}`);
       console.log(result)
-      dispatch({ type: GET_NOVELS, payload: result.data.novels })
-    } catch (err) {
-      console.log(err, "something went wrong")
-    }
-  }
-
-  const get_Novel = async (id) => {
-    console.log("state id", id)
-    try {
-      const result = await axios.get(`/api/v1/novels/${id}`);
-      console.log(result)
-      dispatch({ type: UPDATE_CONTENT, payload: result.data.novel })
+      changePage()
     } catch (err) {
       console.log(err, "something went wrong")
     }
@@ -102,6 +113,7 @@ const NState = (props) => {
         upload_Novel,
         get_Novels,
         get_Novel,
+        delete_Novel,
       }}
     >
       {props.children}

@@ -4,19 +4,21 @@ import { Link } from 'react-router-dom'
 
 function NH_1_3_Reader() {
   const nContext = useContext(NContext);
-  const { id, title, changePage, content, createdAt, get_Novel } = nContext
-  const onClickLink = () => {
-    // get_Novel(id)
-  }
+  const { id, title, changePage, content, createdAt, delete_Novel } = nContext
+
   const onClick = () => {
     changePage()
+  }
+  const deleteNovel = () => {
+    delete_Novel(id)
   }
   return (
     <div >
       <div className='title'>{title}</div>
       <div className='flexBox'>
         <div>{createdAt}</div>
-        <Link className='ml-1' to="/updateNovel" onClick={onClickLink}>Edit</Link>
+        <Link className='ml-1' to="/updateNovel" >Edit</Link>
+        <button className='ml-1' onClick={deleteNovel}>Delete</button>
       </div>
       <div>
         <button className='hover-pointer' onClick={onClick}>Back</button>
