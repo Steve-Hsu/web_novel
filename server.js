@@ -5,7 +5,7 @@ const connectDB = require('./config/db');
 const colors = require('colors');
 const fileupload = require('express-fileupload');
 const errorHandler = require('./middleware/error');
-
+const cookieParser = require('cookie-parser')
 // Middleware
 const logger = require('./middleware/logger')
 
