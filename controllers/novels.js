@@ -1,3 +1,4 @@
+const path = require('path');
 const ErrorResponse = require('../utils/errorResponse');
 const Novel = require('../models/Novel')
 const asyncHandler = require('../middleware/async')
@@ -126,4 +127,46 @@ exports.deleteNovel = asyncHandler(async (req, res, next) => {
     return res.status(400).json({ success: false });
   }
   res.status(200).json({ success: true, data: {} });
+})
+
+//@desc    Upload photo for novel
+//@route   GET /api/v1/novels/:id/photo
+//@access  Private
+exports.novelPhotoUpload = asyncHandler(async (req, res, next) => {
+  const novel = await Novel.findById(req.params.id);
+  if (!novel) {
+    return next(new ErrorResponse(`novel not found with id of ${req.params.id}`, 404));
+  };
+
+  if (!req.files) {
+    return next(new ErrorResponse('Please upload a file', 400));
+  }
+
+  const file = req.files.File;
+
+  // Make sure the image is a photo
+  if (!file.mimetype.startsWith('image')) {
+    return next(new ErrorResponse(`Please upload an image file`, 400));
+  };
+
+  // Check filesize
+  if (file.size > process.env.MAX_FILE_UPLOAD) {
+    return next(new ErrorResponse(`Please upload an image less than ${process.env.MAX_FILE_UPLOAD}`, 404));
+  };
+
+  // Create custom filename
+  // This part prevent photo with same filename and be overwrite.
+  file.name = `photo_${novel._id}${path.parse(file.name).ext}`; // .ext will get the file extention
+
+  file.mv(`${process.env.FILE_UPLOAD_PATH}/${file.name}`, async err => {
+    if (err) {
+      console.error(err);
+      return next(new ErrorResponse(`Problem with file upload`, 500))
+    }
+    await novel.findByIdAndUpdate(req.params.id, { photo: file.name });
+    res.status(200).json({
+      success: true,
+      data: file.name
+    })
+  })
 })
