@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const slugify = require('slugify');
 
 const NovelSchema = mongoose.Schema({
   title: {
@@ -23,5 +24,11 @@ const NovelSchema = mongoose.Schema({
     default: Date.now
   }
 });
+
+// Create novel slug from the name
+NovelSchema.pre('save', function (next) {
+  this.slug = slugify(this.title, { lower: true });
+  next();
+})
 
 module.exports = mongoose.model('novel', NovelSchema);
