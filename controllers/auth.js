@@ -45,6 +45,7 @@ exports.login = asyncHandler(async (req, res, next) => {
   }
 
   sendTokenResponse(user, 200, res)
+  console.log(user)
 })
 
 // Get token from model, create cookie and send response
@@ -65,7 +66,9 @@ const sendTokenResponse = (user, statusCode, res) => {
     .status(statusCode)
     .cookie('token', token, options)
     .json({
+      name: user.name,
       success: true,
-      token
+      token,
+      role: user.role,
     })
 }

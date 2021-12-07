@@ -58,7 +58,7 @@ const UserState = (props) => {
       const res = await axios.post('/api/v1/auth/login', formData, config);
       dispatch({
         //Get token
-        type: GET,
+        type: UPDATE,
         payload: res.data,
       });
       //@ Very important !! Set auth token to the latest token, if not, the following function may take the previous token to login
@@ -68,16 +68,18 @@ const UserState = (props) => {
       console.log('User Login success');
       // loadCases();
 
-      const load_User = async () => {
-        try {
-          const res = await axios.get('/api/v1/auth');
-          dispatch({ type: UPDATE, payload: res.data });
-        } catch (err) {
-          // dispatch({ type: USER_AUTH_ERROR });
-        }
-      }
+      // const load_User = async () => {
+      //   try {
+      //     console.log("login successed")
+      //     // const res = await axios.get('/api/v1/auth');
+      //     // dispatch({ type: UPDATE, payload: res.data });
+      //   } catch (err) {
+      //     console.log('login failed')
+      //     // dispatch({ type: USER_AUTH_ERROR });
+      //   }
+      // }
 
-      load_User();
+      // load_User();
     } catch (err) {
       // dispatch({
       //   type: USER_LOGIN_FAIL,
