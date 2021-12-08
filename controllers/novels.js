@@ -133,6 +133,7 @@ exports.deleteNovel = asyncHandler(async (req, res, next) => {
 //@route   GET /api/v1/novels/:id/photo
 //@access  Private
 exports.novelPhotoUpload = asyncHandler(async (req, res, next) => {
+  console.log("upload img start".yellow)
   const novel = await Novel.findById(req.params.id);
   if (!novel) {
     return next(new ErrorResponse(`novel not found with id of ${req.params.id}`, 404));
@@ -143,9 +144,10 @@ exports.novelPhotoUpload = asyncHandler(async (req, res, next) => {
   }
 
   const file = req.files.File;
+  // console.log("file", file)
 
   // Make sure the image is a photo
-  if (!file.mimetype.startsWith('image')) {
+  if (!file.mimetype.startsWith("image/png")) {
     return next(new ErrorResponse(`Please upload an image file`, 400));
   };
 
@@ -163,7 +165,7 @@ exports.novelPhotoUpload = asyncHandler(async (req, res, next) => {
       console.error(err);
       return next(new ErrorResponse(`Problem with file upload`, 500))
     }
-    await novel.findByIdAndUpdate(req.params.id, { photo: file.name });
+    await Novel.findByIdAndUpdate(req.params.id, { photo: file.name });
     res.status(200).json({
       success: true,
       data: file.name

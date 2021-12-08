@@ -12,6 +12,7 @@ function AN_1_Body() {
     title: title,
     content: content,
     photo: photo,
+    photoData: null,
   })
 
   const titleOnChange = (e) => {
@@ -22,8 +23,14 @@ function AN_1_Body() {
     setANState({ ...ANState, content: e.target.value });
   }
   const handleSubmit = (e) => {
-    upload_Novel(ANState, currentPage, id)
+    upload_Novel(ANState, currentPage, id, e.target.files)
     e.preventDefault();
+  }
+  const onImageChange = async (e) => {
+    if (e.target.files && e.target.files[0]) {
+      let img = e.target.files[0];
+      setANState({ ...ANState, photo: URL.createObjectURL(img), photoData: e.target.files[0] });
+    }
   }
 
   return (
@@ -31,8 +38,10 @@ function AN_1_Body() {
 
       <form onSubmit={handleSubmit}>
         <label>
+          upload an image
+          <input className='mb-1' type="file" name="myImage" onChange={onImageChange} />
           Add your novel here
-          <input type='text' value={ANState.title || ''} onChange={titleOnChange} />
+          <input className='mb-1' type='text' value={ANState.title || ''} onChange={titleOnChange} />
           <textarea className='textArea' cols="50" rows="3" value={ANState.content || ''} onChange={textAreaOnChange} />
         </label>
         <input className="hover-cp-2 hover-pointer" type="submit" value="Submit" />

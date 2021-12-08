@@ -5,6 +5,7 @@ const {
   getNovel,
   createNovel,
   updateNovel,
+  novelPhotoUpload,
   deleteNovel,
 } = require('../controllers/novels')
 const router = express.Router();
@@ -20,5 +21,10 @@ router.route('/:id')
   .get(getNovel)
   .put(updateNovel)
   .delete(deleteNovel)
+
+router.route('/:id/photo')
+  .post(novelPhotoUpload)
+
+
 
 module.exports = router;

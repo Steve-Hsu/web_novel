@@ -31,14 +31,6 @@ const NState = (props) => {
     dispatch({ type: UPDATE_CURRENTPAGE, payload: pageName ? pageName : 'novel' })
   }
 
-  // const updateContent = (id) => {
-  //   // const novel = state.novels.filter((i) => id === i._id)[0];
-  //   // console.log(novel)
-  //   // dispatch({ type: UPDATE_CONTENT, payload: novel })
-  // }
-
-
-
   // @Function with axios - which is named camelCase with underscore "_"
   const get_Novels = async () => {
     try {
@@ -61,6 +53,17 @@ const NState = (props) => {
   }
 
   const upload_Novel = async (ANState, currentPage, id) => {
+    if (ANState.photoData) {
+      const data = new FormData();
+      data.append('File', ANState.photoData)
+      console.log("data :", data) // It will show nothing becasue fromData's feature, what you is empty, even value is appended
+
+      // The way to see appended value
+      for (var key of data.entries()) {
+        console.log(key[0] + ', ' + key[1])
+      }
+      await axios.post(`/api/v1/novels/${id}/photo`, data)
+    }
     switch (currentPage) {
       case 'addNovel':
         try {

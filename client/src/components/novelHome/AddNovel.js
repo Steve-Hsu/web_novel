@@ -1,21 +1,12 @@
-import React, { useContext, useEffect } from 'react'
-
-// Context
-import NContext from '../../context/novelContext/nContext'
+import React from 'react'
 
 // Components
 import LeftBar from '../commonParts/LeftBar';
 import AN_1_Body from './AN_1_Body';
 import NH_2_RightBar from './NH_2_RightBar';
 
-function AddNovel({ page }) {
-  const nContext = useContext(NContext)
-  const { currentPage, changePage } = nContext;
-
-  useEffect(() => {
-    changePage(page)
-  }, [currentPage])
-
+// This page will switch depend on nContext.currentPage, between addnovel and update novel, but the key different is on the nContext.upload_novel()
+function AddNovel() {
 
   return (
     <div>

@@ -5,7 +5,8 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 // Components
 import PrivateUserRoute from './components/privateRoutes/privateUserRoute';
 import NovelHome from './components/novelHome/NovelHome';
-import AddNovel from './components/novelHome/AddNovel'
+import AddNovel from './components/novelHome/AddNovel';
+import LoginPage from './components/auth/UserLogin';
 import NotFound from './components/NotFound'
 
 
@@ -22,12 +23,13 @@ function App() {
 
           <Routes>
             <Route exact path='/' element={<NovelHome />} />
-            <Route element={<PrivateUserRoute />}>
-              <Route exact path='/addNovel' element={<AddNovel page='addNovel' />} />
+            <Route element={<PrivateUserRoute pageName='addNovel' />}>
+              <Route exact path='/addNovel' element={<AddNovel />} />
             </Route>
-            <Route element={<PrivateUserRoute />}>
-              <Route exact path='/updateNovel' element={<AddNovel page='updateNovel' />} />
+            <Route element={<PrivateUserRoute pageName='updateNovel' />}>
+              <Route exact path='/updateNovel' element={<AddNovel />} />
             </Route>
+            <Route exact path='/login' element={<LoginPage />} />
             <Route path='*' element={<NotFound />} />
           </Routes>
 

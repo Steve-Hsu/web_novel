@@ -1,7 +1,6 @@
 import {
   ADD,
   UPDATE,
-  GET,
   CLEAR,
 } from '../types';
 
@@ -17,6 +16,13 @@ export default function UserReducer(state, action) {
         ...state,
         ...action.payload,
         isAuthenticated: true,
+      }
+    case CLEAR:
+      localStorage.removeItem('token')
+      return {
+        token: null,
+        isAuthenticated: null,
+        roll: null
       }
     default:
       return state;

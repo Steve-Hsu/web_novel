@@ -8,7 +8,6 @@ import setAuthToken from '../../utils/setAuthToken'
 
 import {
   ADD,
-  GET,
   UPDATE,
   CLEAR,
 } from '../types'
@@ -46,8 +45,6 @@ const UserState = (props) => {
   }
 
 
-  // Notice !!!!
-  // This part need to be checked, for this frontend code store token at localStorage, but my back end store at cookie
   const login_User = async (formData) => {
     const config = {
       headers: {
@@ -57,7 +54,7 @@ const UserState = (props) => {
     try {
       const res = await axios.post('/api/v1/auth/login', formData, config);
       dispatch({
-        //Get token
+        //Get token, and the user information
         type: UPDATE,
         payload: res.data,
       });
@@ -65,7 +62,6 @@ const UserState = (props) => {
       if (localStorage.token) {
         setAuthToken(localStorage.token);
       }
-      console.log('User Login success');
       // loadCases();
 
       // const load_User = async () => {
