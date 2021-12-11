@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 function NH_1_3_Reader() {
   const nContext = useContext(NContext);
-  const { id, title, changePage, content, createdAt, delete_Novel } = nContext
+  const { id, title, changePage, photo, content, createdAt, delete_Novel } = nContext
 
   const onClick = () => {
     changePage()
@@ -22,6 +22,10 @@ function NH_1_3_Reader() {
       </div>
       <div>
         <button className='hover-pointer' onClick={onClick}>Back</button>
+      </div>
+      <div className='my-1'>
+        {/* Prevent error can't find photo, so use a condition here to check the value of "photo" */}
+        {photo ? <img src={`${__dirname}uploads/${photo}`} className='img' /> : null}
       </div>
       <div className='reader'>
         {content}

@@ -35,7 +35,6 @@ const NState = (props) => {
   const get_Novels = async () => {
     try {
       const result = await axios.get('/api/v1/novels');
-      console.log(result)
       dispatch({ type: GET_NOVELS, payload: result.data.novels })
     } catch (err) {
       console.log(err, "something went wrong")
@@ -43,7 +42,6 @@ const NState = (props) => {
   }
 
   const get_Novel = async (id) => {
-    console.log("state id", id)
     try {
       const result = await axios.get(`/api/v1/novels/${id}`);
       dispatch({ type: UPDATE_CONTENT, payload: result.data.novel })
@@ -53,34 +51,43 @@ const NState = (props) => {
   }
 
   const upload_Novel = async (ANState, currentPage, id) => {
-    if (ANState.photoData) {
-      const data = new FormData();
-      data.append('File', ANState.photoData)
-      console.log("data :", data) // It will show nothing becasue fromData's feature, what you is empty, even value is appended
 
-      // The way to see appended value
-      for (var key of data.entries()) {
-        console.log(key[0] + ', ' + key[1])
+    // Inner Function
+    const upload_Image = async (novelId) => {
+      if (ANState.photoData) {
+        const data = new FormData();
+        data.append('File', ANState.photoData)
+        // console.log("data :", data) // It will show nothing becasue fromData's feature, what you is empty, even value is appended
+
+        // The way to see appended value
+        for (var key of data.entries()) {
+          console.log(key[0] + ', ' + key[1])
+        }
+        await axios.post(`/api/v1/novels/${novelId}/photo`, data)
       }
-      await axios.post(`/api/v1/novels/${id}/photo`, data)
     }
+
     switch (currentPage) {
       case 'addNovel':
         try {
-          await axios.post(
+          const newNovel = await axios.post(
             `/api/v1/novels/addNovel`,
             ANState
           )
+          const newNovelId = newNovel.data.data._id
+          upload_Image(newNovelId)
         } catch (err) {
           console.log(err, "something went wrong")
         }
         break;
       case 'updateNovel':
         try {
+
           await axios.put(
             `/api/v1/novels/${id}`,
             ANState
           )
+          upload_Image(id)
         } catch (err) {
           console.log(err, "something went wrong")
         }
@@ -92,8 +99,7 @@ const NState = (props) => {
   const delete_Novel = async (id) => {
     console.log("delete id", id)
     try {
-      const result = await axios.delete(`/api/v1/novels/${id}`);
-      console.log(result)
+      await axios.delete(`/api/v1/novels/${id}`);
       changePage()
     } catch (err) {
       console.log(err, "something went wrong")
@@ -107,6 +113,7 @@ const NState = (props) => {
         createdAt: state.createdAt,
         id: state.id,
         title: state.title,
+        photo: state.photo,
         content: state.content,
         novels: state.novels,
         addName,

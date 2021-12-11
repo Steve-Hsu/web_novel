@@ -1,9 +1,4 @@
 import React, { useContext, useEffect } from 'react';
-import image_1 from '../../images/img_1.jpg'
-import image_2 from '../../images/img_2.jpg'
-import image_3 from '../../images/img_3.jpg'
-import image_4 from '../../images/img_4.jpg'
-import image_5 from '../../images/img_5.jpg'
 import NContext from '../../context/novelContext/nContext'
 
 function NH_1_2_Right() {
@@ -28,7 +23,7 @@ function NH_1_2_Right() {
           {i.title}
         </div>
         <div className='grid-NH_Body_sub_MR'>
-          <img src={i.img} className='img' />
+          <img src={`${__dirname}uploads/${i.photo}`} className='img' />
           <div className='subtitle'>{i.subtitle}</div>
           <div className='snippet'>{i.content}</div>
         </div>

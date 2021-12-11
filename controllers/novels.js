@@ -96,11 +96,11 @@ exports.getNovel = asyncHandler(async (req, res, next) => {
 //@route   POSTs /api/v1/novels/addnovel
 //@access  Private
 exports.createNovel = asyncHandler(async (req, res, next) => {
-  const novels = await Novel.create(req.body)
+  const NewNovel = await Novel.create(req.body)
   // res.send(req.body)
   res.status(201).json({
     success: true,
-    data: novels
+    data: NewNovel
   })
 })
 
@@ -144,10 +144,9 @@ exports.novelPhotoUpload = asyncHandler(async (req, res, next) => {
   }
 
   const file = req.files.File;
-  // console.log("file", file)
 
   // Make sure the image is a photo
-  if (!file.mimetype.startsWith("image/png")) {
+  if (!file.mimetype.startsWith("image/png") && !file.mimetype.startsWith("image/jpeg")) {
     return next(new ErrorResponse(`Please upload an image file`, 400));
   };
 
@@ -160,12 +159,14 @@ exports.novelPhotoUpload = asyncHandler(async (req, res, next) => {
   // This part prevent photo with same filename and be overwrite.
   file.name = `photo_${novel._id}${path.parse(file.name).ext}`; // .ext will get the file extention
 
+  console.log('file Name', file.name.yellow)
   file.mv(`${process.env.FILE_UPLOAD_PATH}/${file.name}`, async err => {
     if (err) {
       console.error(err);
       return next(new ErrorResponse(`Problem with file upload`, 500))
     }
-    await Novel.findByIdAndUpdate(req.params.id, { photo: file.name });
+    let te = await Novel.findByIdAndUpdate(req.params.id, { photo: file.name }, { new: true });
+    console.log("te", te)
     res.status(200).json({
       success: true,
       data: file.name

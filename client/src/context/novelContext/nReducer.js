@@ -31,6 +31,7 @@ export default function NReducer(state, action) {
         id: '',
         createdAt: '',
         title: key === 'addNovel' ? '' : 'Loading...',
+        photo: '',
         content: '',
         currentPage: action.payload,
       }
@@ -40,6 +41,7 @@ export default function NReducer(state, action) {
         id: action.payload._id,
         createdAt: action.payload.createdAt,
         title: action.payload.title,
+        photo: action.payload.photo,
         content: action.payload.content,
       }
 

@@ -28,8 +28,8 @@ function AN_1_Body() {
   }
   const onImageChange = async (e) => {
     if (e.target.files && e.target.files[0]) {
-      let img = e.target.files[0];
-      setANState({ ...ANState, photo: URL.createObjectURL(img), photoData: e.target.files[0] });
+      const img = e.target.files[0];
+      setANState({ ...ANState, photoData: img });
     }
   }
 
