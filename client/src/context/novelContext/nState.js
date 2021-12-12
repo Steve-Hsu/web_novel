@@ -43,8 +43,13 @@ const NState = (props) => {
 
   const get_Novel = async (id) => {
     try {
-      const result = await axios.get(`/api/v1/novels/${id}`);
-      dispatch({ type: UPDATE_CONTENT, payload: result.data.novel })
+      // Get novel from local state, that alread get novels from DB
+      let novel = state.novels.filter((i) => i._id === id)[0];
+      //If novel get nothong from local state, then get it from DB, check it by id
+      if (!novel._id) await axios.get(`/api/v1/novels/${id}`).then((res) => {
+        novel = res.data.novel
+      })
+      dispatch({ type: UPDATE_CONTENT, payload: novel })
     } catch (err) {
       console.log(err, "something went wrong")
     }

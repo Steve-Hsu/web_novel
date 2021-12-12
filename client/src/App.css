@@ -2314,6 +2314,14 @@ div.landscape {
   white-space: pre-wrap;
 }
 
+.reader_footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35vh;
+  font-size: 1.5rem;
+}
+
 .AN_body .textArea {
   /* white-space: pre-wrap; */
   width: 100%;
@@ -2323,6 +2331,7 @@ div.landscape {
 .grid-NH_Body-Reader .title {
   align-items: center;
   font-size: 3rem;
+  text-align: center;
 }
 
 .grid-NH_Body_sub {

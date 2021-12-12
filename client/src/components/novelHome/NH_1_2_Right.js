@@ -13,7 +13,7 @@ function NH_1_2_Right() {
 
   const onClick = (e) => {
     changePage('reader');
-    get_Novel(e.target.id);
+    get_Novel(e.target.id)
   }
 
   const gridContent = (i, index) => {
