@@ -11,7 +11,7 @@ function NH_1_1_Left() {
       </div>
       <div className='grid-NH_Body_sub_BL'>
         <div className='text'>
-          <i className="fas fa-mug-hot"> 歡喜</i>
+          <i className="fas fa-mug-hot"> 靜</i>
         </div>
       </div>
     </div >

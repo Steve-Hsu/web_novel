@@ -6,16 +6,16 @@ function NH_1_3_Reader() {
   const nContext = useContext(NContext);
   const { id, title, changePage, photo, content, createdAt, delete_Novel } = nContext
 
+
   const onClick = () => {
-    changePage()
+    document.querySelector('.grid-NH_Body-Reader').scrollTo(0, 0);
+    changePage();
   }
   const deleteNovel = () => {
     delete_Novel(id)
   }
   return (
     <div>
-
-
       <div >
         <div className='title mb-2'>{title}</div>
         <div className='flexBox'>
@@ -34,7 +34,11 @@ function NH_1_3_Reader() {
           {content}
         </div>
       </div >
-      <footer className='reader_footer'> - End -</footer>
+      <footer className='reader_footer'>
+        <div className='hover-pointer' onClick={onClick}>
+          - End -
+        </div>
+      </footer>
     </div>
   )
 }
