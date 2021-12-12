@@ -20,6 +20,12 @@ const NState = (props) => {
     photo: '',
     createdAt: '',
     novels: [],
+    pagination: {},
+    count: 0,
+    select: '',
+    sort: '',
+    page: 1,
+    limit: 5,
   }
   const [state, dispatch] = useReducer(nReducer, initialState);
 
@@ -32,10 +38,26 @@ const NState = (props) => {
   }
 
   // @Function with axios - which is named camelCase with underscore "_"
-  const get_Novels = async () => {
+  const get_Novels = async (query) => {
+    // The query is an obj, is can contian select, sort, page, or limit. like :
+    // const { select, sort, page, limit } = query;
+    const URL = (obj) => {
+      let str = '/api/v1/novels'
+      if (!obj) return str
+      str = str + '?'
+      Object.keys(obj).map((key) => {
+        let queryStr = obj[key] ? key + '=' + obj[key] : ''
+        if (str[str.length - 1] != '?') {
+          queryStr = '&' + queryStr
+        }
+        str = str + queryStr
+      })
+      return str
+    }
+
     try {
-      const result = await axios.get('/api/v1/novels');
-      dispatch({ type: GET_NOVELS, payload: result.data.novels })
+      const result = await axios.get(URL(query));
+      dispatch({ type: GET_NOVELS, payload: result.data })
     } catch (err) {
       console.log(err, "something went wrong")
     }
@@ -121,6 +143,12 @@ const NState = (props) => {
         photo: state.photo,
         content: state.content,
         novels: state.novels,
+        pagination: state.pagination,
+        count: state.count,
+        select: state.select,
+        sort: state.sort,
+        page: state.page,
+        limit: state.limit,
         addName,
         changePage,
         // updateContent,

@@ -3,12 +3,12 @@ import NContext from '../../context/novelContext/nContext'
 
 function NH_1_2_Right() {
   const nContext = useContext(NContext)
-  const { currentPage, changePage, novels, get_Novels, get_Novel } = nContext
+  const { currentPage, changePage, novels, get_Novels, get_Novel, select, sort, page, limit } = nContext
 
   const novelData = [...novels]
 
   useEffect(() => {
-    get_Novels();
+    get_Novels({ select, sort, page, limit });
   }, [currentPage])
 
   const onClick = (e) => {

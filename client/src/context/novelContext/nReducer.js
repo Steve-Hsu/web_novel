@@ -11,7 +11,9 @@ export default function NReducer(state, action) {
     case GET_NOVELS:
       return {
         ...state,
-        novels: action.payload,
+        novels: action.payload.novels,
+        pagination: action.payload.pagination,
+        count: action.payload.count,
       }
     case ADD:
       return {
