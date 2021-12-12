@@ -9,7 +9,8 @@ function NH_1_2_Right() {
 
   useEffect(() => {
     get_Novels({ select, sort, page, limit });
-  }, [currentPage])
+
+  }, [currentPage, page])
 
   const onClick = (e) => {
     changePage('reader');

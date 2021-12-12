@@ -9,3 +9,5 @@ export const UPDATE_CONTENT = 'UPDATE_CONTENT';
 
 export const DELETE = 'DELETE';
 export const CLEAR = 'CLEAR';
+
+export const LOADING = 'LOADING'

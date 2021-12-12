@@ -4,6 +4,7 @@ import {
   UPDATE,
   UPDATE_CONTENT,
   UPDATE_CURRENTPAGE,
+  LOADING,
 } from '../types';
 
 export default function NReducer(state, action) {
@@ -14,11 +15,17 @@ export default function NReducer(state, action) {
         novels: action.payload.novels,
         pagination: action.payload.pagination,
         count: action.payload.count,
+        total: action.payload.total,
       }
     case ADD:
       return {
         ...state,
         title: action.payload,
+      }
+    case UPDATE:
+      return {
+        ...state,
+        page: action.payload.page ? action.payload.page : state.page
       }
     case UPDATE_CURRENTPAGE:
       let key = action.payload;
@@ -46,7 +53,11 @@ export default function NReducer(state, action) {
         photo: action.payload.photo,
         content: action.payload.content,
       }
-
+    case LOADING:
+      return {
+        ...state,
+        isLoading: action.payload
+      }
     default:
       return state;
   }

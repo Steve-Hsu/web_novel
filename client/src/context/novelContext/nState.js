@@ -9,6 +9,7 @@ import {
   UPDATE,
   UPDATE_CONTENT,
   GET_NOVELS,
+  LOADING,
 } from '../types'
 
 const NState = (props) => {
@@ -21,11 +22,13 @@ const NState = (props) => {
     createdAt: '',
     novels: [],
     pagination: {},
-    count: 0,
+    count: 0, // Current loaded novel Qty
+    total: 0, // Total document of novels in DB
     select: '',
     sort: '',
     page: 1,
-    limit: 5,
+    limit: 3,
+    isLoading: false,
   }
   const [state, dispatch] = useReducer(nReducer, initialState);
 
@@ -37,8 +40,29 @@ const NState = (props) => {
     dispatch({ type: UPDATE_CURRENTPAGE, payload: pageName ? pageName : 'novel' })
   }
 
+  const prevOrNextNovels = (sign) => {
+    if (!state.isLoading) {
+      let page = state.page
+      if (sign === 'prevNovels') page -= 1
+      else page += 1
+      const maxPage = Math.ceil(state.total / state.limit)
+      if (page >= maxPage) page = maxPage;
+      if (page <= 1) page = 1;
+      const pagination = { page }
+      dispatch({ type: UPDATE, payload: pagination })
+    }
+  }
+
+  // @ Innter functions for this state use only
+  // _loading() prevent user duplicated trigger some function, or make request while server working
+  // This _loading() can apply to any Funcs with axios
+  const _loading = (boolen) => {
+    dispatch({ type: LOADING, payload: boolen })
+  }
+
   // @Function with axios - which is named camelCase with underscore "_"
   const get_Novels = async (query) => {
+    _loading(true)
     // The query is an obj, is can contian select, sort, page, or limit. like :
     // const { select, sort, page, limit } = query;
     const URL = (obj) => {
@@ -58,8 +82,13 @@ const NState = (props) => {
     try {
       const result = await axios.get(URL(query));
       dispatch({ type: GET_NOVELS, payload: result.data })
+      // Make the element scroll to top to show from 1st item to next item  
+      // Set is for state updated then UI update, make it more natural.
+      document.querySelector('.grid-NH_Body_sub_R').scrollTo(0, 0);
+      _loading(false)
     } catch (err) {
       console.log(err, "something went wrong")
+      _loading(false)
     }
   }
 
@@ -152,6 +181,7 @@ const NState = (props) => {
         addName,
         changePage,
         // updateContent,
+        prevOrNextNovels,
         upload_Novel,
         get_Novels,
         get_Novel,

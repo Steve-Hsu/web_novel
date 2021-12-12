@@ -9,14 +9,14 @@ import NContext from '../../context/novelContext/nContext'
 
 function NH_1_Body() {
   const nContext = useContext(NContext);
-  const { currentPage } = nContext;
+  const { currentPage, pagination, prevOrNextNovels } = nContext;
 
   const returnPage = () => {
     switch (currentPage) {
       case 'novel':
         return (
           <div className="grid-NH_Body">
-            <NH_1_1_Left />
+            <NH_1_1_Left pagination={pagination} prevOrNextNovels={prevOrNextNovels} />
             <NH_1_2_Right />
           </div>
         )

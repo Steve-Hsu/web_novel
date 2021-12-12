@@ -2344,6 +2344,11 @@ div.landscape {
 .body_size_L {
   grid-template-rows: 12rem auto;
 }
+
+.grid-NH_Body_sub_BL > .pagination-area {
+  font-size: 1.5rem;
+}
+
 .body_size_R {
   grid-template-rows: 12rem auto 4rem;
   /* grid-template-rows: 20% 30% 10%; */

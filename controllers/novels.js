@@ -75,7 +75,7 @@ exports.getNovels = asyncHandler(async (req, res, next) => {
     }
   }
 
-  const result = { success: true, count: novels.length, pagination, novels: novels }
+  const result = { success: true, count: novels.length, total, pagination, novels: novels }
 
   // console.log("result", result)
   res.status(200).json(result)
