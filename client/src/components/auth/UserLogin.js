@@ -1,32 +1,18 @@
 import React, { useState, useContext, useEffect, Fragment } from 'react';
 import UserContext from '../../context/userContext/userContext';
-// import AlertContext from '../../context/alert/alertContext';
-// import AuthUserContext from '../../context/authUser/authUserContext';
+import { useNavigate } from 'react-router-dom'
 
-
-//Alert
-// import Alerts from '../layout/Alerts';
-// import Navbar from '../layout/Navbar';
-
-const UserLogin = () => {
+const UserLogin = ({ loginTo }) => {
   const userContext = useContext(UserContext)
   const { login_User, isAuthenticated } = userContext
-  // const alertContext = useContext(AlertContext);
-  // const authUserContext = useContext(AuthUserContext);
+  const navigate = useNavigate()
 
-  // const { setAlert } = alertContext;
-  // const { loginUser, error, clearErrors, isAuthenticated } = authUserContext;
-
-  // useEffect(() => {
-  //   if (isAuthenticated) {
-  //     props.history.push('/api/v1/addnovel');
-  //   }
-  //   if (error) {
-  //     // setAlert(error, 'danger');
-  //     // clearErrors();
-  //   }
-  //   // eslint-disable-next-line
-  // }, [error, isAuthenticated, props.history]);
+  useEffect(() => {
+    if (isAuthenticated && loginTo === 'home') {
+      navigate('/');
+    }
+    // eslint-disable-next-line
+  }, [isAuthenticated]);
 
   const [user, setUser] = useState({
     email: '',

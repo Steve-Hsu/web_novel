@@ -3,6 +3,7 @@ import UserContext from './userContext';
 import UserReducer from './userReducer';
 import axios from 'axios'
 
+
 //Utils
 import setAuthToken from '../../utils/setAuthToken'
 
@@ -16,7 +17,7 @@ import {
 const UserState = (props) => {
   const initialState = {
     token: localStorage.getItem('token'),
-    isAuthenticated: null,
+    isAuthenticated: false,
     role: null,
   }
   const [state, dispatch] = useReducer(UserReducer, initialState);
@@ -77,6 +78,8 @@ const UserState = (props) => {
 
       // load_User();
     } catch (err) {
+      console.log('login failed')
+      dispatch({ type: CLEAR })
       // dispatch({
       //   type: USER_LOGIN_FAIL,
       //   payload: err.response.data.msg,

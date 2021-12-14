@@ -110,6 +110,7 @@ const NState = (props) => {
 
     // Inner Function
     const upload_Image = async (novelId) => {
+      console.log('ANState.photoData', ANState.photoData)
       if (ANState.photoData) {
         const data = new FormData();
         data.append('File', ANState.photoData)
