@@ -1,10 +1,13 @@
 import React, { useContext } from 'react'
-import NContext from '../../context/novelContext/nContext'
+import NContext from '../../context/novelContext/nContext';
+import UserContext from '../../context/userContext/userContext';
 import { Link } from 'react-router-dom'
 
 function NH_1_3_Reader() {
   const nContext = useContext(NContext);
-  const { id, title, changePage, photo, content, createdAt, delete_Novel } = nContext
+  const userContext = useContext(UserContext)
+  const { id, title, changePage, photo, content, createdAt, delete_Novel } = nContext;
+  const { isAuthenticated, role } = userContext;
 
 
   const onClick = () => {
@@ -18,11 +21,17 @@ function NH_1_3_Reader() {
     <div>
       <div >
         <div className='title mb-2'>{title}</div>
-        <div className='flexBox'>
-          <div>{createdAt}</div>
-          <Link className='ml-1' to="/updateNovel" >Edit</Link>
-          <button className='ml-1' onClick={deleteNovel}>Delete</button>
-        </div>
+        {isAuthenticated && role === 'writer' ? (
+          <div className='flexBox'>
+            <div>{createdAt}</div>
+            <Link className='ml-1' to="/updateNovel" >Edit</Link>
+            <button className='ml-1' onClick={deleteNovel}>Delete</button>
+          </div>
+        ) : (
+          <div className='flexBox'>
+            <div>{createdAt}</div>
+          </div>)}
+
         <div>
           <button className='hover-pointer' onClick={onClick}>Back</button>
         </div>
